@@ -1,0 +1,27 @@
+services:
+- docker
+- mysql
+env:
+- SERVER_IP_ADDRESS=167.172.29.127
+before_install:
+- mysql -e 'CREATE DATABASE travis_ci_test;'
+- docker build -t eyobofficial/drf-starter-django .
+install: skip
+script:
+- docker run --net=host --env-file=.env.travis eyobofficial/drf-starter-django bash script/run_tests.sh
+after_success:
+- docker build -t eyobofficial/drf-starter-nginx -f ./nginx/Dockerfile ./nginx
+- docker login -u $DOCKER_ID -p $DOCKER_PASSWORD
+- docker push eyobofficial/drf-starter-django
+- docker push eyobofficial/drf-starter-nginx
+- openssl aes-256-cbc -K $encrypted_a83ec8a93e11_key -iv $encrypted_a83ec8a93e11_iv -in deploy_key.enc -out ./deploy_key -d
+- eval "$(ssh-agent -s)"
+- chmod 600 ./deploy_key
+- echo -e "Host $SERVER_IP_ADDRESS\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+- ssh-add ./deploy_key
+- ssh -i ./deploy_key root@$SERVER_IP_ADDRESS < ./deploy.sh
+# deploy:
+#   provider: script
+#   script: ssh -i ./deploy_key root@$SERVER_IP_ADDRESS bash ./deploy.sh
+#   on:
+#     branch: development

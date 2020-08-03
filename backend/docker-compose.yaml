@@ -1,0 +1,74 @@
+version: '3.7'
+services:
+  web:
+    build: .
+    command: bash script/run_web.sh
+    restart: always
+    env_file:
+      - ./.env
+    environment:
+      - DB_HOST=${DB_HOST}
+      - CELERY_BROKER_URL=${CELERY_BROKER_URL}
+      - CELERY_RESULT_BACKEND=${CELERY_RESULT_BACKEND}
+    expose:
+      - '8000'
+    volumes:
+      - static_volume:/code/staticfiles
+      - media_volume:/code/mediafiles
+    depends_on:
+      - db
+      - redis-server
+  db:
+    image: mysql:5.7
+    restart: always
+    env_file:
+      - ./.env
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    restart: always
+    env_file:
+      - ./.env
+    ports:
+      - ${NGINX_PORT}:80
+    volumes:
+      - static_volume:/code/staticfiles
+      - media_volume:/code/mediafiles
+    depends_on:
+      - web
+  redis-server:
+    image: redis
+    restart: unless-stopped
+    ports:
+      - 6379:6379
+  celery:
+    build: .
+    command: celery worker -A config -l info
+    restart: always
+    env_file:
+      - ./.env
+    depends_on:
+      - redis-server
+      - db
+      - web
+  celery-beat:
+    build: .
+    command: celery beat -A config -l info
+    restart: always
+    env_file:
+      - ./.env
+    depends_on:
+      - web
+      - db
+      - celery
+
+volumes:
+  mysql_data:
+  static_volume:
+  media_volume:
+

@@ -1,0 +1,25 @@
+# Django Project settings
+SECRET_KEY=
+ALLOWED_HOSTS=.localhost, .127.0.0.1
+DJANGO_SETTINGS_MODULE=config.settings.local
+
+# Admin Settings
+ADMIN_USERNAME=
+ADMIN_EMAIL=
+ADMIN_PASSWORD=
+
+# Database variables
+DB_ROOT_PASSWORD=
+DB_NAME=
+DB_USER=root
+DB_PASSWORD=
+DB_HOST=db
+DB_PORT=3306
+
+# NGINX variables
+NGINX_PORT=8080
+
+# CELERY
+CELERY_BROKER_URL=redis://redis-server:6379
+CELERY_RESULT_BACKEND=redis://redis-server:6379
+
