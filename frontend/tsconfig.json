@@ -14,7 +14,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@home/*": ["src/app/home/*"],
+      "@resume/*": ["src/app/resume/*"],
+      "@portfolio/*": ["src/app/portfolio/*"],
+      "@contact/*": ["src/app/contact/*"],
+      "@feedback/*": ["src/app/feedback/*"],
+      "@blog/*": ["src/app/blog/*"]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

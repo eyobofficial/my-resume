@@ -50,7 +50,11 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "frontend/node_modules/font-awesome/css/font-awesome.min.css",
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              "node_modules/hover.css/css/hover-min.css",
+              "src/theme.css",
+              "src/layout.css",
+              "src/colors.css",
               "src/styles.css"
             ],
             "scripts": []
