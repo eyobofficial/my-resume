@@ -1,0 +1,9 @@
+<figure class="item standard">
+  <div class="portfolio-item-img">
+    <img src="../../assets/img/portfolio/1.jpg" [alt]="portfolio.title"/>
+    <a [routerLink]="['/portfolios', portfolio.id]"></a>
+  </div>
+  <i class="fas fa-link"></i>
+  <h4 class="name">{{ portfolio.title }}</h4>
+  <span class="category">Detailed</span>
+</figure>

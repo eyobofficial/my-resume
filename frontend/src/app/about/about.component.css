@@ -1,0 +1,16 @@
+.fill-block {
+  min-height: 550px !important;
+  border-radius: 10px;
+}
+
+.hp-text-block {
+  border-radius: 10px;
+}
+
+#clients-carousel {
+  display: block;
+}
+
+#testimonials-slide {
+  display: block;
+}

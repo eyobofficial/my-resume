@@ -1,0 +1,7 @@
+.embed-responsive {
+  height: auto;
+}
+
+a:not([href]) {
+  cursor: pointer;
+}

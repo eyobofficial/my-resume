@@ -1,0 +1,124 @@
+<div>
+  <div>
+    <div class="row">
+      <div class="col-lg-4 col-lg-push-8">
+        <div class="ajax-page-nav">
+          <div class="nav-item ajax-page-prev-next">
+            <a href="#"><i class="lnr lnr-chevron-left"></i></a>&nbsp;
+            <a href="#"><i class="lnr lnr-chevron-right"></i></a>
+          </div>
+          <div class="nav-item ajax-page-close-button">
+            <a (click)="onClose()"><i class="lnr lnr-cross"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-8 col-lg-pull-4">
+        <h2>{{ portfolio.title }}</h2>
+      </div>
+    </div>
+
+    <div class="p-20"></div>
+
+    <div class="row" *ngIf="carouselOptions">
+      <div class="col-md-4 col-md-push-8 portfolio-block">
+        <!-- Project Description -->
+        <div class="project-description">
+          <div class="block-title">
+            <h3>Summary</h3>
+          </div>
+          <ul class="project-general-info">
+            <li>
+              <p><i class="fa fa-user"></i> Alex Smith</p>
+            </li>
+            <li>
+              <p>
+                <i class="fa fa-globe"></i>
+                <a href="#" target="_blank">www.project-site.com</a>
+              </p>
+            </li>
+            <li>
+              <p><i class="fa fa-calendar"></i> 25 december, 2016</p>
+            </li>
+          </ul>
+
+          <p class="text-justify">
+            Aliquam euismod aliquam massa, quis eleifend dui sodales vitae.
+            Interdum et malesuada fames ac ante ipsum primis in faucibus.
+          </p>
+          <!-- /Project Description -->
+
+          <!-- Technology -->
+          <div class="tags-block">
+            <div class="block-title">
+              <h3>Technology</h3>
+            </div>
+            <ul class="tags">
+              <li><a>HTML5</a></li>
+              <li><a>CSS3</a></li>
+              <li><a>jQuery</a></li>
+              <li><a>Ajax</a></li>
+              <li><a>PHP5</a></li>
+            </ul>
+          </div>
+          <!-- /Technology -->
+
+          <!-- Share Buttons -->
+          <div class="btn-group share-buttons">
+            <div class="block-title">
+              <h3>Share</h3>
+            </div>
+            <a href="#" target="_blank" class="btn">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" target="_blank" class="btn">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" target="_blank" class="btn">
+              <i class="fab fa-dribbble"></i>
+            </a>
+          </div>
+          <!-- /Share Buttons -->
+        </div>
+        <!-- Project Description -->
+        <div class="p-20"></div>
+      </div>
+
+      <div class="col-md-8 col-md-pull-4 portfolio-block">
+        <div class="portfolio-page-carousel">
+          <owl-carousel-o [options]="carouselOptions">
+            <ng-template carouselSlide>
+              <div class="item">
+                <img [src]="'../../../assets/img/portfolio/full/1.jpg'" alt="" />
+              </div>
+            </ng-template>
+
+            <ng-template carouselSlide>
+              <div class="item">
+                <img [src]="'../../../assets/img/portfolio/full/2.jpg'" alt="" />
+              </div>
+            </ng-template>
+
+            <ng-template carouselSlide>
+              <div class="item">
+                <img [src]="'../../../assets/img/portfolio/full/2.jpg'" alt="" />
+              </div>
+            </ng-template>
+
+            <ng-template carouselSlide>
+              <div class="item">
+                <img [src]="'../../../assets/img/portfolio/full/3.jpg'" alt="" />
+              </div>
+            </ng-template>
+          </owl-carousel-o>
+        </div>
+
+        <div class="portfolio-page-video embed-responsive embed-responsive-16by9">
+          <iframe
+            class="embed-responsive-item"
+            src="https://player.vimeo.com/video/97102654?autoplay=0"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -16,12 +16,14 @@
       "dom"
     ],
     "paths": {
-      "@home/*": ["src/app/home/*"],
+      "@about/*": ["src/app/about/*"],
       "@resume/*": ["src/app/resume/*"],
       "@portfolio/*": ["src/app/portfolio/*"],
       "@contact/*": ["src/app/contact/*"],
       "@feedback/*": ["src/app/feedback/*"],
-      "@blog/*": ["src/app/blog/*"]
+      "@blog/*": ["src/app/blog/*"],
+      "@shared/*": ["src/app/shared/*"],
+      "@environments/*": ["src/environments/*"]
     }
   },
   "angularCompilerOptions": {
