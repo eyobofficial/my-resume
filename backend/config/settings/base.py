@@ -36,7 +36,8 @@ INSTALLED_APPS += [
 # Project apps
 INSTALLED_APPS += [
     'accounts.apps.AccountsConfig',
-    'shared.apps.SharedConfig'
+    'shared.apps.SharedConfig',
+    'api.apps.ApiConfig'
 ]
 
 MIDDLEWARE = [
@@ -76,40 +77,26 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 # MYSQL
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT')
-    }
-}
-
-
-# SQLITE
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': 'mydatabase',
-#     }
-# }
-
-
-#  POSTRESQL
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
+#         'ENGINE': 'django.db.backends.mysql',
 #         'NAME': config('DB_NAME'),
 #         'USER': config('DB_USER'),
 #         'PASSWORD': config('DB_PASSWORD'),
 #         'HOST': config('DB_HOST'),
-#         'PORT': '',
+#         'PORT': config('DB_PORT')
 #     }
 # }
+
+
+# SQLITE
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'sqlite3.db',
+    }
+}
 
 
 # Password validation
