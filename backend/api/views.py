@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from rest_framework.viewsets import ReadOnlyModelViewSet
 
-# Create your views here.
+from .models import Skill
+from .serializers import SkillSerializer
+
+
+class SkillViewSet(ReadOnlyModelViewSet):
+    serializer_class = SkillSerializer
+    queryset = Skill.objects.filter(is_published=True)

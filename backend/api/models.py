@@ -18,7 +18,7 @@ class Skill(models.Model):
     # Skill type choices
     SKILL_TYPES = (
         (DESIGN, 'UI/UX'),
-        (FRONTEND, 'Frontend')
+        (FRONTEND, 'Frontend'),
         (BACKEND, 'Backend'),
         (DEVOPS, 'DevOps')
     )
@@ -28,7 +28,7 @@ class Skill(models.Model):
     score = models.IntegerField(
         validators=[MinValueValidator(0), MaxValueValidator(100)]
     )
-    type = modele.IntegerField(choices=SKILL_TYPES)
+    type = models.IntegerField(choices=SKILL_TYPES)
     description = models.TextField(blank=True)
     is_published = models.BooleanField(default=False)
 
