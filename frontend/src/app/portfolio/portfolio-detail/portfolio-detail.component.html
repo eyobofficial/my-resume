@@ -1,7 +1,7 @@
 <div>
   <div>
     <div class="row">
-      <div class="col-lg-4 col-lg-push-8">
+      <div class="col-md-4 col-sm-12 order-md-2">
         <div class="ajax-page-nav">
           <div class="nav-item ajax-page-prev-next">
             <a href="#"><i class="lnr lnr-chevron-left"></i></a>&nbsp;
@@ -13,15 +13,51 @@
         </div>
       </div>
 
-      <div class="col-lg-8 col-lg-pull-4">
+      <div class="col-md-8 col-sm-12 order-md-1">
         <h2>{{ portfolio.title }}</h2>
       </div>
     </div>
 
     <div class="p-20"></div>
 
-    <div class="row" *ngIf="carouselOptions">
-      <div class="col-md-4 col-md-push-8 portfolio-block">
+    <div class="row" id="carousel-row" *ngIf="carouselOptions">
+      <div class="col-md-8 col-sm-12 portfolio-block">
+        <div class="portfolio-page-carousel">
+          <owl-carousel-o [options]="carouselOptions">
+            <ng-template carouselSlide>
+              <div class="item">
+                <img [src]="'../../../assets/img/portfolio/full/1.jpg'" alt="" />
+              </div>
+            </ng-template>
+
+            <ng-template carouselSlide>
+              <div class="item">
+                <img [src]="'../../../assets/img/portfolio/full/2.jpg'" alt="" />
+              </div>
+            </ng-template>
+
+            <ng-template carouselSlide>
+              <div class="item">
+                <img [src]="'../../../assets/img/portfolio/full/2.jpg'" alt="" />
+              </div>
+            </ng-template>
+
+            <ng-template carouselSlide>
+              <div class="item">
+                <img [src]="'../../../assets/img/portfolio/full/3.jpg'" alt="" />
+              </div>
+            </ng-template>
+          </owl-carousel-o>
+        </div>
+
+        <div class="portfolio-page-video embed-responsive embed-responsive-16by9">
+          <iframe
+            class="embed-responsive-item"
+            src="https://player.vimeo.com/video/97102654?autoplay=0"></iframe>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-12 portfolio-block">
         <!-- Project Description -->
         <div class="project-description">
           <div class="block-title">
@@ -84,41 +120,6 @@
         <div class="p-20"></div>
       </div>
 
-      <div class="col-md-8 col-md-pull-4 portfolio-block">
-        <div class="portfolio-page-carousel">
-          <owl-carousel-o [options]="carouselOptions">
-            <ng-template carouselSlide>
-              <div class="item">
-                <img [src]="'../../../assets/img/portfolio/full/1.jpg'" alt="" />
-              </div>
-            </ng-template>
-
-            <ng-template carouselSlide>
-              <div class="item">
-                <img [src]="'../../../assets/img/portfolio/full/2.jpg'" alt="" />
-              </div>
-            </ng-template>
-
-            <ng-template carouselSlide>
-              <div class="item">
-                <img [src]="'../../../assets/img/portfolio/full/2.jpg'" alt="" />
-              </div>
-            </ng-template>
-
-            <ng-template carouselSlide>
-              <div class="item">
-                <img [src]="'../../../assets/img/portfolio/full/3.jpg'" alt="" />
-              </div>
-            </ng-template>
-          </owl-carousel-o>
-        </div>
-
-        <div class="portfolio-page-video embed-responsive embed-responsive-16by9">
-          <iframe
-            class="embed-responsive-item"
-            src="https://player.vimeo.com/video/97102654?autoplay=0"></iframe>
-        </div>
-      </div>
     </div>
   </div>
 </div>

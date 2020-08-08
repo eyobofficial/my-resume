@@ -22,7 +22,7 @@
     "@angular/router": "~9.1.7",
     "@fortawesome/fontawesome-free": "^5.14.0",
     "@ng-bootstrap/ng-bootstrap": "^6.2.0",
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^4.4.1",
     "feather-icons": "^4.28.0",
     "hover.css": "^2.3.2",
     "ngx-owl-carousel-o": "^4.0.0",
