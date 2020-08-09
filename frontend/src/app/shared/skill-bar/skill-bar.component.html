@@ -1,0 +1,9 @@
+<div class="skills-info skills-first-style">
+  <div class="clearfix">
+    <h4>{{ skill.title }}</h4>
+    <div class="skill-value">{{ skill.score }}%</div>
+  </div>
+  <div class="skill-container">
+    <div class="skill-percentage" [style.width.%]="skill.score"></div>
+  </div>
+</div>

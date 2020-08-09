@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  pageTitle: 'Eyob Tariku'
+  pageTitle: 'Eyob Tariku',
+  api: {
+    url: 'http://localhost:8000'
+  }
 };
 
 /*

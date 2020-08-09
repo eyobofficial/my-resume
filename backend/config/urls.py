@@ -22,7 +22,7 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name='shared/default.html')),
-    path('api/', include('api.urls', namespace='api')),
+    path('resume/', include('resume.urls', namespace='resume')),
     path('admin/', admin.site.urls)
 ]
 

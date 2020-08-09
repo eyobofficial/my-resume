@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
+import { SharedModule } from '@shared/shared.module';
 import { ResumeComponent } from './resume.component';
 
 const routes: Routes = [
@@ -12,7 +14,9 @@ const routes: Routes = [
     ResumeComponent
   ],
   imports: [
-    RouterModule.forChild(routes)
+    HttpClientModule,
+    RouterModule.forChild(routes),
+    SharedModule
   ],
   exports: []
 })

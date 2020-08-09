@@ -37,7 +37,7 @@ INSTALLED_APPS += [
 INSTALLED_APPS += [
     'accounts.apps.AccountsConfig',
     'shared.apps.SharedConfig',
-    'api.apps.ApiConfig'
+    'resume.apps.ResumeConfig'
 ]
 
 MIDDLEWARE = [
@@ -165,7 +165,7 @@ DEFAULT_ADMIN_LAST_NAME = config('ADMIN_LAST_NAME', '')
 
 
 # Project Name
-PROJECT_NAME = 'Django_Starter'
+PROJECT_NAME = 'My Resume Website'
 
 
 # Celery

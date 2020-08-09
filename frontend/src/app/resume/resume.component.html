@@ -10,7 +10,132 @@
       </div>
 
       <div id="content" class="page-content site-content single-post" role="main">
-        <router-outlet></router-outlet>
+
+        <div class="row">
+          <div class=" col-xs-12 col-sm-6 ">
+            <div class="block-title">
+              <h2>Experience</h2>
+            </div>
+            <div class="timeline clearfix">
+              <div class="timeline-item clearfix" *ngFor="let experience of experiences | async">
+                <h5 class="item-period current">{{ experience.start }} - {{ experience.still_working ? 'Current' : experience.end }}</h5>
+                <span class="item-company">{{ experience.place }}</span>
+                <h4 class="item-title">{{ experience.title }}</h4>
+                <p>{{ experience.description }}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class=" col-xs-12 col-sm-6 ">
+            <div class="block-title">
+              <h2>Education</h2>
+            </div>
+            <div class="timeline clearfix">
+              <div class="timeline-item clearfix" *ngFor="let education of educations | async">
+                <h5 class="item-period ">{{ education.year }}</h5>
+                <span class="item-company">{{ education.institute }}</span>
+                <h4 class="item-title">{{ education.title }}</h4>
+                <p>{{ education.description }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class=" col-xs-12 col-sm-12 ">
+            <div class="p-20"></div>
+
+            <div class="block-title">
+              <h2>Certificates</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-6" *ngFor="let certificate of certificates | async">
+            <a (click)="openExternalLink(certificate.link)" class="lightbox">
+              <div class="certificate-item clearfix">
+                <div class="certi-logo">
+                  <img [src]="certificate.icon" alt="logo">
+                </div>
+
+                <div class="certi-content">
+                  <div class="certi-title">
+                    <h4>{{ certificate.title }}</h4>
+                  </div>
+
+                  <div class="certi-id">
+                    <span>{{ certificate.institute }}</span>
+                  </div>
+                  <div class="certi-date">
+                    <span>{{ certificate.date | date:'longDate' }}</span>
+                  </div>
+
+                  <div class="certi-company">
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- <div class=" col-xs-12 col-sm-6 ">
+            <a href="//lmpixels.com/wp/leven-wp/wp-content/uploads/2019/11/1.jpg" class="lightbox">
+              <div class="certificate-item clearfix">
+                <div class="certi-logo">
+                  <img src="//lmpixels.com/wp/leven-wp/wp-content/uploads/2019/12/client-1.png" alt="logo">
+                </div>
+
+                <div class="certi-content">
+                  <div class="certi-title">
+                    <h4>Psyhology of Intertnation Design</h4>
+                  </div>
+
+                  <div class="certi-id">
+                    <span>Membership ID: XXXX</span>
+                  </div>
+
+                  <div class="certi-date">
+                    <span>19 April 2018</span>
+                  </div>
+
+                  <div class="certi-company">
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div> -->
+        </div>
+
+        <div class="row">
+          <div class=" col-xs-12 col-sm-12 ">
+            <div class="p-40"></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class=" col-xs-12 col-sm-4">
+            <div class="block-title">
+              <h2>Frontend Skills</h2>
+            </div>
+            <app-skill-bar [skill]="skill" *ngFor="let skill of frontendSkills | async"></app-skill-bar>
+          </div>
+
+          <div class=" col-xs-12 col-sm-4">
+            <div class="block-title">
+              <h2>Backend Skills</h2>
+            </div>
+            <app-skill-bar [skill]="skill" *ngFor="let skill of backendSkills | async"></app-skill-bar>
+          </div>
+
+          <div class=" col-xs-12 col-sm-4">
+            <div class="block-title">
+              <h2>DevOps Skills</h2>
+            </div>
+            <app-skill-bar [skill]="skill" *ngFor="let skill of devopsSkills | async"></app-skill-bar>
+          </div>
+        </div>
       </div>
     </div>
   </div>
