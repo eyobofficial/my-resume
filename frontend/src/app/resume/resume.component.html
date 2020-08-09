@@ -16,8 +16,9 @@
             <div class="block-title">
               <h2>Experience</h2>
             </div>
-            <div class="timeline clearfix">
-              <div class="timeline-item clearfix" *ngFor="let experience of experiences | async">
+            <app-spinner *ngIf="experiences.isLoading" [height]="240"></app-spinner>
+            <div class="timeline clearfix" *ngIf="!experiences.isLoading">
+              <div class="timeline-item clearfix" *ngFor="let experience of experiences.data">
                 <h5 class="item-period current">{{ experience.start }} - {{ experience.still_working ? 'Current' : experience.end }}</h5>
                 <span class="item-company">{{ experience.place }}</span>
                 <h4 class="item-title">{{ experience.title }}</h4>
@@ -30,8 +31,9 @@
             <div class="block-title">
               <h2>Education</h2>
             </div>
-            <div class="timeline clearfix">
-              <div class="timeline-item clearfix" *ngFor="let education of educations | async">
+            <app-spinner *ngIf="educations.isLoading" [height]="240"></app-spinner>
+            <div class="timeline clearfix" *ngIf="!educations.isLoading">
+              <div class="timeline-item clearfix" *ngFor="let education of educations.data">
                 <h5 class="item-period ">{{ education.year }}</h5>
                 <span class="item-company">{{ education.institute }}</span>
                 <h4 class="item-title">{{ education.title }}</h4>
@@ -51,8 +53,9 @@
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-xs-12 col-sm-6" *ngFor="let certificate of certificates | async">
+        <app-spinner *ngIf="certificates.isLoading" [height]="120"></app-spinner>
+        <div class="row" *ngIf="!certificates.isLoading">
+          <div class="col-xs-12 col-sm-6" *ngFor="let certificate of certificates.data">
             <a (click)="openExternalLink(certificate.link)" class="lightbox">
               <div class="certificate-item clearfix">
                 <div class="certi-logo">
@@ -78,34 +81,6 @@
               </div>
             </a>
           </div>
-
-          <!-- <div class=" col-xs-12 col-sm-6 ">
-            <a href="//lmpixels.com/wp/leven-wp/wp-content/uploads/2019/11/1.jpg" class="lightbox">
-              <div class="certificate-item clearfix">
-                <div class="certi-logo">
-                  <img src="//lmpixels.com/wp/leven-wp/wp-content/uploads/2019/12/client-1.png" alt="logo">
-                </div>
-
-                <div class="certi-content">
-                  <div class="certi-title">
-                    <h4>Psyhology of Intertnation Design</h4>
-                  </div>
-
-                  <div class="certi-id">
-                    <span>Membership ID: XXXX</span>
-                  </div>
-
-                  <div class="certi-date">
-                    <span>19 April 2018</span>
-                  </div>
-
-                  <div class="certi-company">
-                    <span></span>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div> -->
         </div>
 
         <div class="row">
@@ -115,25 +90,34 @@
         </div>
 
         <div class="row">
-          <div class=" col-xs-12 col-sm-4">
+          <div class=" col-xs-12 col-sm-4 skill-item">
             <div class="block-title">
               <h2>Frontend Skills</h2>
             </div>
-            <app-skill-bar [skill]="skill" *ngFor="let skill of frontendSkills | async"></app-skill-bar>
+            <app-spinner [height]="150" [widthPercent]="80" *ngIf="frontendSkills.isLoading"></app-spinner>
+            <ng-container *ngIf="!frontendSkills.isLoading">
+              <app-skill-bar [skill]="skill" *ngFor="let skill of frontendSkills.data"></app-skill-bar>
+            </ng-container>
           </div>
 
-          <div class=" col-xs-12 col-sm-4">
+          <div class=" col-xs-12 col-sm-4 skill-item">
             <div class="block-title">
               <h2>Backend Skills</h2>
             </div>
-            <app-skill-bar [skill]="skill" *ngFor="let skill of backendSkills | async"></app-skill-bar>
+            <app-spinner [height]="150" [widthPercent]="80" *ngIf="backendSkills.isLoading"></app-spinner>
+            <ng-container *ngIf="!backendSkills.isLoading">
+              <app-skill-bar [skill]="skill" *ngFor="let skill of backendSkills.data"></app-skill-bar>
+            </ng-container>
           </div>
 
-          <div class=" col-xs-12 col-sm-4">
+          <div class=" col-xs-12 col-sm-4 skill-item">
             <div class="block-title">
               <h2>DevOps Skills</h2>
             </div>
-            <app-skill-bar [skill]="skill" *ngFor="let skill of devopsSkills | async"></app-skill-bar>
+            <app-spinner [height]="150" [widthPercent]="80" *ngIf="devopsSkills.isLoading"></app-spinner>
+            <ng-container *ngIf="!devopsSkills.isLoading">
+              <app-skill-bar [skill]="skill" *ngFor="let skill of devopsSkills.data"></app-skill-bar>
+            </ng-container>
           </div>
         </div>
       </div>

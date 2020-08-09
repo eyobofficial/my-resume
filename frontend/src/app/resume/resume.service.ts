@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from '@environments/environment';
 import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, delay } from 'rxjs/operators';
 
 import { ISkill } from './models/skill.interface';
 import { SkillType } from './models/skill-type.constants';
@@ -70,7 +70,6 @@ export class ResumeService {
 
   private handleError(error: HttpErrorResponse): Observable<any> {
     // Handle HTTP Error
-    console.log(error);
     return throwError(error);
   }
 }
