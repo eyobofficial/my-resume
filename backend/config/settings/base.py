@@ -38,7 +38,8 @@ INSTALLED_APPS += [
     'accounts.apps.AccountsConfig',
     'shared.apps.SharedConfig',
     'resume.apps.ResumeConfig',
-    'contacts.apps.ContactsConfig'
+    'contacts.apps.ContactsConfig',
+    'portfolio.apps.PortfolioConfig'
 ]
 
 MIDDLEWARE = [
