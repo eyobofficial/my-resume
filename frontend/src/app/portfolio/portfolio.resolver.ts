@@ -5,7 +5,7 @@ import { ActivatedRouteSnapshot,
 import { Observable } from 'rxjs';
 
 import { PortfolioService } from './portfolio.service';
-import { IPortfolio } from './portfolio.interface';
+import { IPortfolio } from './models/portfolio.interface';
 
 @Injectable({providedIn: 'root'})
 export class PortfolioResolver implements Resolve<IPortfolio> {

@@ -1,10 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Observable, from, of } from 'rxjs';
-import { tap } from 'rxjs/operators';
-import { IPortfolio } from './portfolio.interface';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { environment } from '@environments/environment';
+import { Observable, of, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+
+import { IPortfolio } from './models/portfolio.interface';
+import { ITestimonial } from './models/testimonial.interface';
 
 @Injectable({providedIn: 'root'})
 export class PortfolioService {
+
+  private endpoint = environment.api.url + '/portfolio';
+
+  constructor(private http: HttpClient) {}
 
   // Portfolios
   portfolios: IPortfolio[] = [
@@ -24,5 +32,18 @@ export class PortfolioService {
     // Return a single portfolio by it's id.
     const portfolio = this.portfolios.find(portfolio => portfolio.id == id);
     return of(portfolio);
+  }
+
+  getTestimonials(): Observable<ITestimonial[]> {
+    // Return all published testimonials
+    const url = `${this.endpoint}/testimonials/`;
+    return this.http.get<ITestimonial[]>(url).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  private handleError(error: HttpErrorResponse): Observable<any> {
+    // Returns error observable
+    return throwError(error);
   }
 }

@@ -4,7 +4,7 @@ import { environment } from '@environments/environment';
 import { Subscription } from 'rxjs';
 
 import { PortfolioService } from '../portfolio.service';
-import { IPortfolio } from '../portfolio.interface';
+import { IPortfolio } from '../models/portfolio.interface';
 
 @Component({
   templateUrl: './portfolio-list.component.html',

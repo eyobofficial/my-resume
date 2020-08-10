@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from rest_framework.viewsets import ReadOnlyModelViewSet
 
-# Create your views here.
+from .models import Testimonial
+from .serializers import TestimonialSerializer
+
+
+class TestimonialViewSet(ReadOnlyModelViewSet):
+    serializer_class = TestimonialSerializer
+    queryset = Testimonial.objects.filter(is_published=True)

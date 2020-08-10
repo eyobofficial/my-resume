@@ -92,7 +92,8 @@ class Testimonial(models.Model):
     Past client testimonials.
     """
     id = models.UUIDField(primary_key=True, editable=False, default=uuid.uuid4)
-    name = models.CharField('client name', max_length=120)
+    name = models.CharField('full name', max_length=120)
+    title = models.CharField('client title', max_length=120)
     photo = models.ImageField()
     testimony = models.TextField()
     featured = models.BooleanField(default=False)

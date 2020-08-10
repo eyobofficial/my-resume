@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { IPortfolio } from '@portfolio/portfolio.interface';
+import { IPortfolio } from '@portfolio/models/portfolio.interface';
 
 @Component({
   selector: 'app-portfolio-thumbnail',

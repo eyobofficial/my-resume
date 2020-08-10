@@ -1,21 +1,40 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { Subscription } from 'rxjs';
 import { environment } from '@environments/environment';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+
+import { ITestimonial } from '@portfolio/models/testimonial.interface';
+import { PortfolioService } from '@portfolio/portfolio.service';
 
 @Component({
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent implements OnInit, OnDestroy {
   pageTitle = `${environment.pageTitle} - About Me`;
   testimonialsCarouselOptions: OwlOptions;
+  testimonials: ITestimonial[] = [];
+  isFetchingTestimonial = false;
+  private testimonialSub: Subscription;
 
-  constructor(private titleService: Title) {}
+  constructor(private titleService: Title,
+              private portfolioService: PortfolioService) {}
 
   ngOnInit(): void {
     this.titleService.setTitle(this.pageTitle);
     this.initTestimonialCarousel();
+    this.fetchTestimonials();
+  }
+
+  private fetchTestimonials(): void {
+    this.isFetchingTestimonial = true;
+    this.testimonialSub = this.portfolioService.getTestimonials().subscribe(
+      (testimonials: ITestimonial[]) => {
+        this.testimonials = testimonials;
+        this.isFetchingTestimonial = false;
+      }
+    );
   }
 
   private initTestimonialCarousel(): void {
@@ -40,6 +59,10 @@ export class AboutComponent implements OnInit {
         }
       }
     };
+  }
+
+  ngOnDestroy(): void {
+    this.testimonialSub.unsubscribe();
   }
 
 }

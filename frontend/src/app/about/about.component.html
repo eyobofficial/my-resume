@@ -102,118 +102,12 @@
             </div>
 
             <!-- Testimonial Slides -->
-            <div id="testimonials-slide" class="testimonials owl-carousel">
+            <app-spinner [height]="150" *ngIf="isFetchingTestimonial"></app-spinner>
+            <div id="testimonials-slide" class="testimonials owl-carousel" *ngIf="!isFetchingTestimonial">
               <owl-carousel-o [options]="testimonialsCarouselOptions">
-
                 <!-- Testimonial 1 -->
-                <ng-template carouselSlide>
-                  <div class="testimonial-item">
-                    <!-- Testimonial Content -->
-                    <div class="testimonial-content">
-                      <!-- Picture -->
-                      <div class="testimonial-picture">
-                        <img src="../../assets/img/testimonials/testimonial-1.jpg" alt="Billy Adams"/>
-                      </div>
-                      <!-- /Picture -->
-
-                      <!-- Testimonial Text -->
-                      <div class="testimonial-text">
-                          <p>Donec eu est vel metus consequat volutpat. Nunc aliquet euismod mauris, a feugiat urna ullamcorper non.</p>
-                      </div>
-                      <!-- /Testimonial Text -->
-
-                      <!-- Testimonial author information -->
-                      <div class="testimonial-author-info">
-                        <h5 class="testimonial-author">Billy Adams</h5>
-                        <p class="testimonial-firm">Rolling Thunder</p>
-                      </div>
-                      <!-- /Testimonial author information -->
-
-                      <div class="testimonial-icon">
-                        <i class="fa fa-quote-left"></i>
-                      </div>
-
-                        <div class="testimonial-icon-big">
-                        <i class="fa fa-quote-right"></i>
-                      </div>
-                    </div>
-                    <!-- /Testimonial Content -->
-                  </div>
-                  <!-- End of Testimonial 1 -->
-                </ng-template>
-
-                <!-- Testimonial 1 -->
-                <ng-template carouselSlide>
-                  <div class="testimonial-item">
-                    <!-- Testimonial Content -->
-                    <div class="testimonial-content">
-                      <!-- Picture -->
-                      <div class="testimonial-picture">
-                        <img src="../../assets/img/testimonials/testimonial-1.jpg" alt="Billy Adams"/>
-                      </div>
-                      <!-- /Picture -->
-
-                      <!-- Testimonial Text -->
-                      <div class="testimonial-text">
-                          <p>Donec eu est vel metus consequat volutpat. Nunc aliquet euismod mauris, a feugiat urna ullamcorper non.</p>
-                      </div>
-                      <!-- /Testimonial Text -->
-
-                      <!-- Testimonial author information -->
-                      <div class="testimonial-author-info">
-                        <h5 class="testimonial-author">Billy Adams</h5>
-                        <p class="testimonial-firm">Rolling Thunder</p>
-                      </div>
-                      <!-- /Testimonial author information -->
-
-                      <div class="testimonial-icon">
-                        <i class="fa fa-quote-left"></i>
-                      </div>
-
-                        <div class="testimonial-icon-big">
-                        <i class="fa fa-quote-right"></i>
-                      </div>
-                    </div>
-                    <!-- /Testimonial Content -->
-                  </div>
-                  <!-- End of Testimonial 1 -->
-                </ng-template>
-
-                                <!-- Testimonial 1 -->
-                <ng-template carouselSlide>
-                  <div class="testimonial-item">
-                    <!-- Testimonial Content -->
-                    <div class="testimonial-content">
-                      <!-- Picture -->
-                      <div class="testimonial-picture">
-                        <img src="../../assets/img/testimonials/testimonial-1.jpg" alt="Billy Adams"/>
-                      </div>
-                      <!-- /Picture -->
-
-                      <!-- Testimonial Text -->
-                      <div class="testimonial-text">
-                        <p>Donec eu est vel metus consequat volutpat. Nunc aliquet euismod mauris, a feugiat urna ullamcorper non.</p>
-                      </div>
-                      <!-- /Testimonial Text -->
-
-                      <!-- Testimonial author information -->
-                      <div class="testimonial-author-info">
-                        <h5 class="testimonial-author">Billy Adams</h5>
-                        <p class="testimonial-firm">Rolling Thunder</p>
-                      </div>
-                      <!-- /Testimonial author information -->
-
-                      <div class="testimonial-icon">
-                        <i class="fa fa-quote-left"></i>
-                      </div>
-
-                      <div class="testimonial-icon-big">
-                        <i class="fa fa-quote-right"></i>
-                      </div>
-                    </div>
-                    <!-- /Testimonial Content -->
-                  </div>
-                  <!-- End of Testimonial 1 -->
+                <ng-template carouselSlide *ngFor="let testimonial of testimonials">
+                  <app-testimonial [testimonial]="testimonial"></app-testimonial>
                 </ng-template>
                 <!-- /Testimonials -->
               </owl-carousel-o>

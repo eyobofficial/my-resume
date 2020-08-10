@@ -26,6 +26,6 @@ class ProjectAdmin(admin.ModelAdmin):
 
 @admin.register(Testimonial)
 class TestimonialAdmin(admin.ModelAdmin):
-    list_display = ('name', 'featured', 'is_published', 'created_at')
+    list_display = ('name', 'title', 'featured', 'is_published', 'created_at')
     list_filter = ('featured', 'is_published')
     search_fields = ('name', 'testimony')

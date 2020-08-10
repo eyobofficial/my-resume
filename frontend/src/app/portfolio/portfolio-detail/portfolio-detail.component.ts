@@ -4,7 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { environment } from '@environments/environment';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
-import { IPortfolio } from '../portfolio.interface';
+import { IPortfolio } from '../models/portfolio.interface';
 
 @Component({
   templateUrl: './portfolio-detail.component.html',
