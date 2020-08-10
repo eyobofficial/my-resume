@@ -4,7 +4,6 @@ import { Subscription } from 'rxjs';
 import { environment } from '@environments/environment';
 
 import { ResumeService } from './resume.service';
-import { ISkill } from './models/skill.interface';
 import { IEducation } from './models/education.interface';
 import { IExperience } from './models/experience.interface';
 import { ICertificate } from './models/certificate.interface';
@@ -37,28 +36,6 @@ export class ResumeComponent implements OnInit, OnDestroy {
     data: []
   };
 
-  // Frontend Skills
-  frontendSkillSub: Subscription;
-  frontendSkills: {isLoading: boolean, data: ISkill[]} = {
-    isLoading: false,
-    data: []
-  };
-
-  // Backend Skills
-  backendSkillSub: Subscription;
-  backendSkills: {isLoading: boolean, data: ISkill[]} = {
-    isLoading: false,
-    data: []
-  };
-
-  // DevOps Skills
-  devopsSkillSub: Subscription;
-  devopsSkills: {isLoading: boolean, data: ISkill[]} = {
-    isLoading: false,
-    data: []
-  };
-
-
   constructor(private titleService: Title,
               private resumeService: ResumeService) {}
 
@@ -67,9 +44,6 @@ export class ResumeComponent implements OnInit, OnDestroy {
     this.fetchEducation();
     this.fetchExperience();
     this.fetchCertificate();
-    this.fetchFrontendSkills();
-    this.fetchBackendSkills();
-    this.fetchDevopsSkills();
   }
 
   private fetchEducation(): void {
@@ -102,36 +76,6 @@ export class ResumeComponent implements OnInit, OnDestroy {
     );
   }
 
-  private fetchFrontendSkills(): void {
-    this.frontendSkills.isLoading = true;
-    this.frontendSkillSub = this.resumeService.getFrontendSkills().subscribe(
-      (skills: ISkill[]) => {
-        this.frontendSkills.data = skills;
-        this.frontendSkills.isLoading = false;
-      }
-    );
-  }
-
-  private fetchBackendSkills(): void {
-    this.backendSkills.isLoading = true;
-    this.backendSkillSub = this.resumeService.getBackendSkills().subscribe(
-      (skills: ISkill[]) => {
-        this.backendSkills.data = skills;
-        this.backendSkills.isLoading = false;
-      }
-    );
-  }
-
-  private fetchDevopsSkills(): void {
-    this.devopsSkills.isLoading = true;
-    this.devopsSkillSub = this.resumeService.getDevopsSkills().subscribe(
-      (skills: ISkill[]) => {
-        this.devopsSkills.data = skills;
-        this.devopsSkills.isLoading = false;
-      }
-    );
-  }
-
   openExternalLink(link: string): void {
     window.open(link);
   }
@@ -140,8 +84,5 @@ export class ResumeComponent implements OnInit, OnDestroy {
     this.educationSub.unsubscribe();
     this.experienceSub.unsubscribe();
     this.certificateSub.unsubscribe();
-    this.frontendSkillSub.unsubscribe();
-    this.backendSkillSub.unsubscribe();
-    this.devopsSkillSub.unsubscribe();
   }
 }

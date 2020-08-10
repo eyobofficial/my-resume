@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SkillBarComponent } from './skill-bar/skill-bar.component';
+import { SkillsComponent } from './skills/skills.component';
+import { SkillBarComponent } from './skills/skill-bar/skill-bar.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
+    SkillsComponent,
     SkillBarComponent,
     SpinnerComponent
   ],
@@ -14,6 +16,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
   ],
   exports: [
     CommonModule,
+    SkillsComponent,
     SkillBarComponent,
     SpinnerComponent
   ]

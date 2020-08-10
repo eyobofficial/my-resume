@@ -1,0 +1,5 @@
+@media (max-width: 576px) {
+  .skill-item:not(:last-child) {
+    margin-bottom: 25px;
+  }
+}

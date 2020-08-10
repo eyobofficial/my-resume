@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { RouterModule, Routes } from '@angular/router';
 
+import { SharedModule } from '@shared/shared.module';
 import { AboutComponent } from './about.component';
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   ],
   imports: [
     RouterModule.forChild(routes),
+    SharedModule,
     CarouselModule,
     CommonModule
   ]

@@ -89,37 +89,8 @@
           </div>
         </div>
 
-        <div class="row">
-          <div class=" col-xs-12 col-sm-4 skill-item">
-            <div class="block-title">
-              <h2>Frontend Skills</h2>
-            </div>
-            <app-spinner [height]="150" [widthPercent]="80" *ngIf="frontendSkills.isLoading"></app-spinner>
-            <ng-container *ngIf="!frontendSkills.isLoading">
-              <app-skill-bar [skill]="skill" *ngFor="let skill of frontendSkills.data"></app-skill-bar>
-            </ng-container>
-          </div>
-
-          <div class=" col-xs-12 col-sm-4 skill-item">
-            <div class="block-title">
-              <h2>Backend Skills</h2>
-            </div>
-            <app-spinner [height]="150" [widthPercent]="80" *ngIf="backendSkills.isLoading"></app-spinner>
-            <ng-container *ngIf="!backendSkills.isLoading">
-              <app-skill-bar [skill]="skill" *ngFor="let skill of backendSkills.data"></app-skill-bar>
-            </ng-container>
-          </div>
-
-          <div class=" col-xs-12 col-sm-4 skill-item">
-            <div class="block-title">
-              <h2>DevOps Skills</h2>
-            </div>
-            <app-spinner [height]="150" [widthPercent]="80" *ngIf="devopsSkills.isLoading"></app-spinner>
-            <ng-container *ngIf="!devopsSkills.isLoading">
-              <app-skill-bar [skill]="skill" *ngFor="let skill of devopsSkills.data"></app-skill-bar>
-            </ng-container>
-          </div>
-        </div>
+        <!-- Skills -->
+        <app-skills></app-skills>
       </div>
     </div>
   </div>
