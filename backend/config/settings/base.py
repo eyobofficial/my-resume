@@ -37,7 +37,8 @@ INSTALLED_APPS += [
 INSTALLED_APPS += [
     'accounts.apps.AccountsConfig',
     'shared.apps.SharedConfig',
-    'resume.apps.ResumeConfig'
+    'resume.apps.ResumeConfig',
+    'contacts.apps.ContactsConfig'
 ]
 
 MIDDLEWARE = [
@@ -188,3 +189,7 @@ FIXTURES = []
 
 # Environment
 ENVIRONMENT = config('ENVIRONMENT')
+
+
+# Sendgrid Email
+SENDGRID_API = config('SENDGRID_API', default=None)

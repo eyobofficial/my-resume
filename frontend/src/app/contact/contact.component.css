@@ -1,0 +1,18 @@
+.btn-send[disabled] {
+  cursor: not-allowed;
+  color: #777;
+}
+
+.btn-send[disabled]:hover {
+  background-color: #333;
+}
+
+.message {
+  line-height: 2;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.message i.icon {
+  font-size: 18px;
+}

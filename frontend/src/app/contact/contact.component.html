@@ -10,7 +10,98 @@
       </div>
 
       <div id="content" class="page-content site-content single-post" role="main">
-        <router-outlet></router-outlet>
+        <div class="row">
+          <div class=" col-xs-12 col-sm-4 ">
+
+            <div id="info_list_1" class="info-list-w-icon">
+
+              <div class="info-block-w-icon">
+                <div class="ci-icon">
+                  <i class="linecons linecons-phone"></i>
+                </div>
+                <div class="ci-text">
+                  <h4>+251-911-427805</h4>
+                  <p>Duis erat leo, aliquam laoreet fringilla quis, pretium vitae dui.</p>
+                </div>
+              </div>
+
+              <div class="info-block-w-icon">
+                <div class="ci-icon">
+                  <i class="linecons linecons-location"></i>
+                </div>
+                <div class="ci-text">
+                  <h4>Addis Ababa</h4>
+                  <p>Duis erat leo, aliquam laoreet fringilla quis, pretium vitae dui.</p>
+                </div>
+              </div>
+
+              <div class="info-block-w-icon">
+                <div class="ci-icon">
+                  <i class="linecons linecons-mail"></i>
+                </div>
+                <div class="ci-text">
+                  <h4>eyob@zede.tech</h4>
+                  <p>Duis erat leo, aliquam laoreet fringilla quis, pretium vitae dui.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class=" col-xs-12 col-sm-8 ">
+            <div class="block-title">
+              <h2>How Can I Help You?</h2>
+            </div>
+
+            <app-spinner [height]="150" *ngIf="isSending"></app-spinner>
+
+            <form id="contact_form" class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()" *ngIf="!isSending">
+              <div class="controls two-columns">
+                <div class="fields row">
+                  <div class="col-md-6 col-sm-12">
+                    <div class="form-group form-group-with-icon" [ngClass]="{'has-danger has-error': name.invalid && name.touched}">
+                      <input type="text" formControlName="name" class="form-control" placeholder="Full Name">
+                      <div class="form-control-border"></div>
+                      <div class="help-block with-errors" *ngIf="name.invalid && name.touched">Name is required.</div>
+                    </div>
+
+                    <div class="form-group form-group-with-icon" [ngClass]="{'has-danger has-error': email.invalid && email.touched}">
+                      <input id="form_email" type="email" formControlName="email" class="form-control" placeholder="Email Address">
+                      <div class="form-control-border"></div>
+                      <div class="help-block with-errors" *ngIf="email.errors?.required && email.touched">E-mail is required.</div>
+                      <div class="help-block with-errors" *ngIf="email.errors?.email && email.touched">E-mail must be valid.</div>
+                    </div>
+
+                    <div class="form-group form-group-with-icon" [ngClass]="{'has-danger has-error': subject.invalid && subject.touched}">
+                      <input id="form_name" type="text" formControlName="subject" class="form-control" placeholder="Subject">
+                      <div class="form-control-border"></div>
+                      <div class="help-block with-errors" *ngIf="subject.invalid && subject.touched">Subject is required.</div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-sm-12">
+                    <div class="form-group form-group-with-icon">
+                      <textarea id="form_message" formControlName="message" class="form-control" placeholder="Message" rows="7"></textarea>
+                      <div class="form-control-border"></div>
+                      <div class="help-block with-errors"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <button type="submit" class="button btn-send" [disabled]="contactForm.invalid">Send message</button>
+
+                <!-- Success Message -->
+                <div class="message d-sm-block d-md-inline ml-md-3 text-primary" *ngIf="isSubmitted && !isFailed">
+                  <i class="fas fa-check-circle icon"></i> Your message is sent. Thank you!
+                </div>
+
+                <!-- Error/Failure Message -->
+                <div class="message d-sm-block d-md-inline ml-md-3 text-danger" *ngIf="isSubmitted && isFailed">
+                  <i class="fas fa-exclamation-triangle icon"></i> Message not sent. Please try again.
+                </div>
+              </div>
+            </form>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
