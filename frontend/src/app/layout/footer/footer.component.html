@@ -2,20 +2,24 @@
   <div class="footer-social">
     <ul class="footer-social-links">
       <li>
-        <a href="#" target="_blank">Twitter</a>
+        <a (click)="openExternalLink(githubProfile)" class="social-link">Github</a>
       </li>
 
       <li>
-        <a href="#" target="_blank">Facebook</a>
+        <a (click)="openExternalLink(twitterProfile)" class="social-link">Twitter</a>
       </li>
 
       <li>
-        <a href="#" target="_blank">Instagram</a>
+        <a (click)="openExternalLink(linkedInProfile)" class="social-link">LinkedIn</a>
+      </li>
+
+      <li>
+        <a (click)="openExternalLink(facebookProfile)" class="social-link">Facebook</a>
       </li>
     </ul>
   </div>
 
   <div class="footer-copyrights">
-    <p>&copy; 2020 All rights reserved. By Eyob Tariku.</p>
+    <p>&copy; {{ today | date:'y' }} All rights reserved. By Eyob Tariku.</p>
   </div>
 </footer>
