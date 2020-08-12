@@ -24,36 +24,28 @@
       <div class="col-md-8 col-sm-12 portfolio-block">
         <div class="portfolio-page-carousel">
           <owl-carousel-o [options]="carouselOptions">
-            <ng-template carouselSlide>
+            <ng-template carouselSlide *ngFor="let photo of project.photos">
               <div class="item">
-                <img [src]="'../../../assets/img/portfolio/full/1.jpg'" alt="" />
-              </div>
-            </ng-template>
-
-            <ng-template carouselSlide>
-              <div class="item">
-                <img [src]="'../../../assets/img/portfolio/full/2.jpg'" alt="" />
-              </div>
-            </ng-template>
-
-            <ng-template carouselSlide>
-              <div class="item">
-                <img [src]="'../../../assets/img/portfolio/full/2.jpg'" alt="" />
-              </div>
-            </ng-template>
-
-            <ng-template carouselSlide>
-              <div class="item">
-                <img [src]="'../../../assets/img/portfolio/full/3.jpg'" alt="" />
+                <img [src]="photo.photo" [alt]="photo.title" />
               </div>
             </ng-template>
           </owl-carousel-o>
         </div>
 
-        <div class="portfolio-page-video embed-responsive embed-responsive-16by9">
+        <div class="portfolio-description" *ngIf="!!project.description">
+          <div class="p-20"></div>
+
+          <div class="block-title">
+            <h2>Project Description</h2>
+          </div>
+          <div class="text-justify">{{ project.description }}</div>
+        </div>
+
+        <div class="portfolio-page-video embed-responsive embed-responsive-16by9" *ngIf="!!project.video">
           <iframe
             class="embed-responsive-item"
-            src="https://player.vimeo.com/video/97102654?autoplay=0"></iframe>
+            [src]="project.video | safe"
+            frameborder="0" allowfullscreen></iframe>
         </div>
       </div>
 
@@ -61,27 +53,39 @@
         <!-- Project Description -->
         <div class="project-description">
           <div class="block-title">
-            <h3>Summary</h3>
+            <h3>
+              Summary
+              <span class="badge badge-pill badge-primary ml-1 private-badge" *ngIf="project.private">PRIVATE</span>
+            </h3>
           </div>
-          <ul class="project-general-info">
-            <li>
-              <p><i class="fa fa-user"></i> Alex Smith</p>
-            </li>
-            <li>
+          <ul class="project-general-info mt-3">
+            <li *ngIf="!!project.project_url">
               <p>
-                <i class="fa fa-globe"></i>
-                <a href="#" target="_blank">www.project-site.com</a>
+                <i class="fa fa-globe fa-icon"></i>
+                <a (click)="openExternalLink(project.project_url)" class="external-link" title="Project URL">
+                  {{ project.project_url }}
+                  <i class="fas fa-external-link-alt fa-icon ml-1 external-link-icon"></i>
+                </a>
+              </p>
+            </li>
+            <li *ngIf="!!project.repository">
+              <p>
+                <i class="fa-icon fab fa-github"></i>
+                <a (click)="openExternalLink(project.repository)" class="external-link" title="Github repository">
+                  {{ project.repository }}
+                  <i class="fas fa-external-link-alt ml-1 external-link-icon"></i>
+                </a>
               </p>
             </li>
             <li>
-              <p><i class="fa fa-calendar"></i> 25 december, 2016</p>
+              <p title="Project type"><i class="fas fa-file-code fa-icon"></i> {{ project.type }}</p>
+            </li>
+            <li>
+              <p><i class="fa fa-calendar fa-icon"></i> {{ project.date | date:'longDate' }}</p>
             </li>
           </ul>
 
-          <p class="text-justify">
-            Aliquam euismod aliquam massa, quis eleifend dui sodales vitae.
-            Interdum et malesuada fames ac ante ipsum primis in faucibus.
-          </p>
+          <p class="text-justify">{{ project.summary }}</p>
           <!-- /Project Description -->
 
           <!-- Technology -->
@@ -90,28 +94,24 @@
               <h3>Technology</h3>
             </div>
             <ul class="tags">
-              <li><a>HTML5</a></li>
-              <li><a>CSS3</a></li>
-              <li><a>jQuery</a></li>
-              <li><a>Ajax</a></li>
-              <li><a>PHP5</a></li>
+              <li *ngFor="let technology of project.technologies"><a>{{ technology }}</a></li>
             </ul>
           </div>
           <!-- /Technology -->
 
           <!-- Share Buttons -->
-          <div class="btn-group share-buttons">
-            <div class="block-title">
+          <div class="btn-group share-buttons" *ngIf="!!project.facebook || !!project.twitter || !!project.linkedIn">
+            <div class="block-title mr-2">
               <h3>Share</h3>
             </div>
-            <a href="#" target="_blank" class="btn">
+            <a (click)="openExternalLink(project.facebook)" class="btn" title="Facebook" *ngIf="!!project.facebook">
               <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="#" target="_blank" class="btn">
+            <a (click)="openExternalLink(project.twitter)" class="btn" title="Twitter" *ngIf="!!project.twitter">
               <i class="fab fa-twitter"></i>
             </a>
-            <a href="#" target="_blank" class="btn">
-              <i class="fab fa-dribbble"></i>
+            <a (click)="openExternalLink(project.linkedIn)" class="btn" title="LinkedIn" *ngIf="!!project.linkedIn">
+              <i class="fab fa-linkedin-in"></i>
             </a>
           </div>
           <!-- /Share Buttons -->

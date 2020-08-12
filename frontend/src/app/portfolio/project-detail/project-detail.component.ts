@@ -52,6 +52,10 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
     this.router.navigate(['/portfolio']);
   }
 
+  openExternalLink(link: string): void {
+    window.open(link);
+  }
+
   private initTitle(title): void {
     const pageTitle = `${environment.pageTitle} - ${title}`;
     this.titleService.setTitle(pageTitle);

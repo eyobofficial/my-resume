@@ -20,3 +20,38 @@ a:not([href]) {
   width: 100%;
   float: left;
 }
+
+.project-general-info .external-link {
+  color: #007ced;
+  text-decoration: none;
+  outline: none;
+}
+
+.project-general-info .external-link-icon {
+  display: none;
+  font-size: 10px;
+}
+
+.project-general-info .external-link:hover {
+  color: #ff9800;
+  text-decoration: none;
+  outline: none;
+  transition: all .3s;
+}
+
+.project-general-info .external-link:hover .external-link-icon {
+  display: inline;
+  color: #ff9800;
+}
+
+.private-badge {
+  background-color: transparent;
+  border: 1px solid #007ced;
+  color: #007ced;
+  font-size: 13px;
+  font-weight: normal;
+}
+
+.block-title h2 {
+  margin-bottom: 15px;
+}

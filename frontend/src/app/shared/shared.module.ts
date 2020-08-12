@@ -4,12 +4,14 @@ import { CommonModule } from '@angular/common';
 import { SkillsComponent } from './skills/skills.component';
 import { SkillBarComponent } from './skills/skill-bar/skill-bar.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { SafePipe } from './safe.pipe';
 
 @NgModule({
   declarations: [
     SkillsComponent,
     SkillBarComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    SafePipe
   ],
   imports: [
     CommonModule
@@ -18,7 +20,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
     CommonModule,
     SkillsComponent,
     SkillBarComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    SafePipe
   ]
 })
 export class SharedModule {}

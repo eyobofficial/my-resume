@@ -14,5 +14,8 @@ export interface IProject {
   repository: string;
   thumbnail: string;
   video: string;
-  photos: IProjectPhoto[]
+  photos: IProjectPhoto[],
+  facebook: string;
+  twitter: string;
+  linkedIn: string;
 }

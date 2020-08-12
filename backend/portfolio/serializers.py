@@ -26,7 +26,8 @@ class ProjectSerializer(serializers.HyperlinkedModelSerializer):
         fields = (
             'url', 'slug', 'name', 'summary', 'description', 'technologies',
             'type', 'private', 'date', 'featured','project_url',
-            'repository', 'thumbnail', 'video', 'photos'
+            'repository', 'thumbnail', 'video', 'photos',
+            'facebook', 'twitter', 'linkedIn'
         )
         extra_kwargs = {
             'url': {

@@ -58,6 +58,9 @@ class Project(models.Model):
         help_text='Recommended size is 429x286 px.'
     )
     video = models.URLField(blank=True)
+    facebook = models.URLField('facebook link', blank=True, default='')
+    twitter = models.URLField('twitter link', blank=True, default='')
+    linkedIn = models.URLField('linkedIn link', blank=True, default='')
     featured = models.BooleanField(default=False)
     is_published = models.BooleanField('published', default=False)
     created_at = models.DateTimeField(auto_now_add=True)
