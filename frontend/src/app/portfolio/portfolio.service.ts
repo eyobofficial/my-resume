@@ -4,7 +4,7 @@ import { environment } from '@environments/environment';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { IPortfolio } from './models/portfolio.interface';
+import { IProject } from './models/project.interface';
 import { ITestimonial } from './models/testimonial.interface';
 
 @Injectable({providedIn: 'root'})
@@ -14,28 +14,24 @@ export class PortfolioService {
 
   constructor(private http: HttpClient) {}
 
-  // Portfolios
-  portfolios: IPortfolio[] = [
-    {id: 1, title: 'Woreket Payment Tracker'},
-    {id: 2, title: 'Rekik Engineering'},
-    {id: 3, title: 'Coworking Spaces'}
-  ];
-
-  getPortfolios(): Observable<IPortfolio[]> {
-    // Returns all portfolios.
-    return Observable.create(observer => {
-      observer.next(this.portfolios.slice());
-    });
+  getProjects(): Observable<IProject[]> {
+    // Returns an observable of past projects.
+    const url = `${this.endpoint}/projects/`;
+    return this.http.get<IProject[]>(url).pipe(
+      catchError(this.handleError)
+    );
   }
 
-  getPortfolio(id: number): Observable<IPortfolio> {
-    // Return a single portfolio by it's id.
-    const portfolio = this.portfolios.find(portfolio => portfolio.id == id);
-    return of(portfolio);
+  getProject(slug: string): Observable<IProject> {
+    // Returns an observable of a past project instance.
+    const url = `${this.endpoint}/projects/${slug}/`;
+    return this.http.get<IProject>(url).pipe(
+      catchError(this.handleError)
+    );
   }
 
   getTestimonials(): Observable<ITestimonial[]> {
-    // Return all published testimonials
+    // Return an observable of all published testimonials
     const url = `${this.endpoint}/testimonials/`;
     return this.http.get<ITestimonial[]>(url).pipe(
       catchError(this.handleError)

@@ -1,0 +1,9 @@
+<figure class="item standard">
+  <div class="portfolio-item-img">
+    <img [src]="project.thumbnail" [alt]="project.name"/>
+    <a [routerLink]="['/portfolio', project.slug]"></a>
+  </div>
+  <i class="fas fa-link"></i>
+  <h4 class="name">{{ project.name }}</h4>
+  <span class="category">{{ project.type }}</span>
+</figure>

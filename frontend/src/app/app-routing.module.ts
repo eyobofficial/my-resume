@@ -11,7 +11,7 @@ const routes: Routes = [
     loadChildren: () => import('@resume/resume.module').then(m => m.ResumeModule)
   },
   {
-    path: 'portfolios',
+    path: 'portfolio',
     loadChildren: () => import('@portfolio/portfolio.module').then(m => m.PortfolioModule)
   },
   {

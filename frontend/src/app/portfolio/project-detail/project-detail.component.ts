@@ -4,15 +4,15 @@ import { Title } from '@angular/platform-browser';
 import { environment } from '@environments/environment';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
-import { IPortfolio } from '../models/portfolio.interface';
+import { IProject } from '../models/project.interface';
 
 @Component({
-  templateUrl: './portfolio-detail.component.html',
-  styleUrls: ['./portfolio-detail.component.css']
+  templateUrl: './project-detail.component.html',
+  styleUrls: ['./project-detail.component.css']
 })
-export class PortfolioDetailComponent implements OnInit {
+export class ProjectDetailComponent implements OnInit {
 
-  portfolio: IPortfolio;
+  project: IProject;
   carouselOptions: OwlOptions;
 
   constructor(private route: ActivatedRoute,
@@ -22,15 +22,15 @@ export class PortfolioDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.data.subscribe(
       (data: Data) => {
-        this.portfolio = data['portfolio'];
+        this.project = data['project'];
         this.initCarousel();
-        this.initTitle(this.portfolio.title);
+        this.initTitle(this.project.name);
       }
     );
   }
 
   onClose(): void {
-    this.router.navigate(['/portfolios']);
+    this.router.navigate(['/portfolio']);
   }
 
   private initTitle(title): void {

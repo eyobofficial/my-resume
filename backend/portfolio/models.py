@@ -29,31 +29,43 @@ class Project(models.Model):
     MOBILE = 3
     SCRAPING = 4
     LIBRARY = 5
+    BOT = 6
 
     PROJECT_TYPES = (
         (WEBSITE, 'Website'),
         (API, 'API'),
         (MOBILE, 'Mobile application'),
         (SCRAPING, 'Web scraping'),
-        (LIBRARY, 'Library')
+        (LIBRARY, 'Library'),
+        (BOT, 'Bot')
     )
 
     id = models.UUIDField(primary_key=True, editable=False, default=uuid.uuid4)
     name = models.CharField(max_length=120)
+    slug = models.SlugField(unique=True)
     summary = models.TextField('short summary')
     description = models.TextField(blank=True)
     technologies = models.ManyToManyField(Technology)
     type = models.IntegerField(choices=PROJECT_TYPES)
     private = models.BooleanField(default=False)
     date = models.DateField()
-    featured = models.BooleanField(default=False)
-    url = models.URLField(blank=True)
-    respository = models.URLField(blank=True)
-    thumbnail = models.ImageField()
+    project_url = models.URLField(blank=True)
+    repository = models.URLField(blank=True)
+    thumbnail = models.ImageField(
+        null=True, blank=True,
+        height_field='thumbnail_height',
+        width_field='thumbnail_width',
+        help_text='Recommended size is 429x286 px.'
+    )
     video = models.URLField(blank=True)
+    featured = models.BooleanField(default=False)
     is_published = models.BooleanField('published', default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    # Image height & width fields
+    thumbnail_height = models.IntegerField(blank=True, null=True)
+    thumbnail_width = models.IntegerField(blank=True, null=True)
 
     class Meta:
         ordering = ('-featured', '-date')
@@ -75,8 +87,16 @@ class ProjectPhoto(models.Model):
         on_delete=models.CASCADE
     )
     title = models.CharField(max_length=120)
-    photo = models.ImageField()
+    photo = models.ImageField(
+        height_field='photo_height',
+        width_field='photo_width',
+        help_text='Recommended size is 870x580 px.'
+    )
     created_at = models.DateTimeField(auto_now_add=True)
+
+    # Height & width fields
+    photo_height = models.IntegerField(blank=True, null=True)
+    photo_width = models.IntegerField(blank=True, null=True)
 
     class Meta:
         ordering = ('created_at', )

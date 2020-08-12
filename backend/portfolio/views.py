@@ -1,7 +1,13 @@
 from rest_framework.viewsets import ReadOnlyModelViewSet
 
-from .models import Testimonial
-from .serializers import TestimonialSerializer
+from .models import Project, Testimonial
+from .serializers import ProjectSerializer, TestimonialSerializer
+
+
+class ProjectViewSet(ReadOnlyModelViewSet):
+    serializer_class = ProjectSerializer
+    queryset = Project.objects.filter(is_published=True)
+    lookup_field = 'slug'
 
 
 class TestimonialViewSet(ReadOnlyModelViewSet):

@@ -21,6 +21,7 @@ class ProjectAdmin(admin.ModelAdmin):
     list_filter = ('private', 'featured', 'is_published')
     inlines = [ProjectPhotoInline]
     filter_horizontal = ('technologies', )
+    prepopulated_fields = {'slug': ('name', )}
     search_fields = ('name', 'summary', 'description')
 
 

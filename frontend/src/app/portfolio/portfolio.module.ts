@@ -4,18 +4,18 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 
 import { SharedModule } from '../shared/shared.module';
 import { PortfolioComponent } from './portfolio.component';
-import { PortfolioListComponent } from './portfolio-list/portfolio-list.component';
-import { PortfolioThumbnailComponent } from './portfolio-list/portfolio-thumbnail/portfolio-thumbnail.component';
-import { PortfolioDetailComponent } from './portfolio-detail/portfolio-detail.component';
-import { PortfolioResolver } from './portfolio.resolver';
+import { ProjectListComponent } from './project-list/project-list.component';
+import { ProjectThumbnailComponent } from './project-list/project-thumbnail/project-thumbnail.component';
+import { ProjectDetailComponent } from './project-detail/project-detail.component';
+import { ProjectResolver } from './project.resolver';
 
 const routes: Routes = [
   {path: '', component: PortfolioComponent, children: [
-    {path: '', component: PortfolioListComponent},
+    {path: '', component: ProjectListComponent},
     {
-      path: ':id',
-      component: PortfolioDetailComponent,
-      resolve: {portfolio: PortfolioResolver}
+      path: ':slug',
+      component: ProjectDetailComponent,
+      resolve: {project: ProjectResolver}
     }
   ]}
 ]
@@ -23,9 +23,9 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     PortfolioComponent,
-    PortfolioListComponent,
-    PortfolioThumbnailComponent,
-    PortfolioDetailComponent
+    ProjectListComponent,
+    ProjectThumbnailComponent,
+    ProjectDetailComponent
   ],
   imports: [
     RouterModule.forChild(routes),
