@@ -96,23 +96,26 @@
           <div class=" col-xs-12 col-sm-12">
             <div class="p-20"></div>
 
-            <!-- Testimonials -->
-            <div class="block-title">
-              <h2>Testimonials</h2>
-            </div>
+            <ng-container *ngIf="testimonials.length > 0">
+              <!-- Testimonials -->
+              <div class="block-title">
+                <h2>Testimonials</h2>
+              </div>
 
-            <!-- Testimonial Slides -->
-            <app-spinner [height]="150" *ngIf="isFetchingTestimonial"></app-spinner>
-            <div id="testimonials-slide" class="testimonials owl-carousel" *ngIf="!isFetchingTestimonial">
-              <owl-carousel-o [options]="testimonialsCarouselOptions">
-                <!-- Testimonial 1 -->
-                <ng-template carouselSlide *ngFor="let testimonial of testimonials">
-                  <app-testimonial [testimonial]="testimonial"></app-testimonial>
-                </ng-template>
-                <!-- /Testimonials -->
-              </owl-carousel-o>
-            </div><!-- / End of Testimonial Slide -->
-            <div class="p-40"></div>
+              <!-- Testimonial Slides -->
+              <app-spinner [height]="150" *ngIf="isFetchingTestimonial"></app-spinner>
+              <div id="testimonials-slide" class="testimonials owl-carousel" *ngIf="!isFetchingTestimonial">
+                <owl-carousel-o [options]="testimonialsCarouselOptions">
+                  <!-- Testimonial 1 -->
+                  <ng-template carouselSlide *ngFor="let testimonial of testimonials">
+                    <app-testimonial [testimonial]="testimonial"></app-testimonial>
+                  </ng-template>
+                  <!-- /Testimonials -->
+                </owl-carousel-o>
+              </div><!-- / End of Testimonial Slide -->
+            </ng-container>
+
+            <div class="p-20"></div>
 
             <div class="row">
               <div class=" col-xs-12 col-sm-12">

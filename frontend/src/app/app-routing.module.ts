@@ -19,10 +19,6 @@ const routes: Routes = [
     loadChildren: () => import('@contact/contact.module').then(m => m.ContactModule)
   },
   {
-    path: 'feedback',
-    loadChildren: () => import('@feedback/feedback.module').then(m => m.FeedbackModule)
-  },
-  {
     path: 'blog',
     loadChildren: () => import('@blog/blog.module').then(m => m.BlogModule)
   }

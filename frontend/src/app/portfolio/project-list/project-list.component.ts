@@ -39,5 +39,4 @@ export class ProjectListComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.projectSub.unsubscribe();
   }
-
 }
