@@ -49,8 +49,8 @@ class TestimonialSerializer(serializers.ModelSerializer):
     class Meta:
         model = Testimonial
         fields = (
-            'id', 'url', 'name', 'title',
-            'photo', 'testimony', 'featured'
+            'id', 'url', 'name', 'title', 'photo',
+            'testimony', 'featured'
         )
         extra_kwargs = {
             'url': {'view_name': 'portfolio:testimonial-detail'}

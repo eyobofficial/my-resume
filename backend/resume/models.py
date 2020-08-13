@@ -60,7 +60,6 @@ class Certificate(models.Model):
         help_text='Training institution. Example: College, University, etc'
     )
     icon = models.ImageField(
-        null=True, blank=True,
         width_field='icon_width',
         height_field='icon_height',
         help_text='Recommended size is 70x21 px.'

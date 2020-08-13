@@ -3,7 +3,8 @@
   <div class="testimonial-content">
     <!-- Picture -->
     <div class="testimonial-picture">
-      <img [src]="testimonial.photo" [alt]="testimonial.name"/>
+      <img [src]="testimonial.photo" [alt]="testimonial.name" *ngIf="!!testimonial.photo"/>
+      <img src="assets/img/avatar.jpg" [alt]="testimonial.name" *ngIf="!testimonial.photo"/>
     </div>
     <!-- /Picture -->
 

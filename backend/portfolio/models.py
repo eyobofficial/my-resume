@@ -52,7 +52,6 @@ class Project(models.Model):
     project_url = models.URLField(blank=True)
     repository = models.URLField(blank=True)
     thumbnail = models.ImageField(
-        null=True, blank=True,
         height_field='thumbnail_height',
         width_field='thumbnail_width',
         help_text='Recommended size is 429x286 px.'

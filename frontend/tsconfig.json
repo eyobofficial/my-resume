@@ -20,7 +20,6 @@
       "@resume/*": ["src/app/resume/*"],
       "@portfolio/*": ["src/app/portfolio/*"],
       "@contact/*": ["src/app/contact/*"],
-      "@blog/*": ["src/app/blog/*"],
       "@shared/*": ["src/app/shared/*"],
       "@environments/*": ["src/environments/*"]
     }

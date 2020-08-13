@@ -8,7 +8,7 @@ class BaseEmail:
     """
     Base Sendgrid e-mail class.
     """
-    receiver = 'eyobtariku@gmail.com'
+    receiver = 'eyob@zede.tech'
     sender = None
     _subject = None
     _content = None

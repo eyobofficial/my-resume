@@ -35,6 +35,11 @@ export class AboutComponent implements OnInit, OnDestroy {
     this.fetchFeaturedSkills();
   }
 
+  downloadResume(): void {
+    const resumeUrl = 'https://eyobofficial-portfolio.s3.eu-central-1.amazonaws.com/resume/CV.pdf';
+    window.open(resumeUrl);
+  }
+
   private fetchTestimonials(): void {
     this.isFetchingTestimonial = true;
     this.testimonialSub = this.portfolioService.getTestimonials().subscribe(

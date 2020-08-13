@@ -7,7 +7,7 @@
             <div class="row">
               <div class="col-sm-12 col-md-6 col-lg-6">
                 <div class="inner-content">
-                  <div class="fill-block" style="background-image: url(/assets/img/main_photo.jpg);"></div>
+                  <div class="fill-block" style="background-image: url(/assets/img/eyob_tariku.jpg);"></div>
                 </div>
               </div>
               <div class="col-sm-12 col-md-6 col-lg-6">
@@ -18,7 +18,7 @@
                     <p>Fusce tempor magna mi, non egestas velit ultricies nec. Aenean convallis, risus non condimentum gravida, odio mauris ullamcorper felis, ut venenatis purus ex eu mi. Quisque imperdiet lacinia urna, a placerat sapien pretium eu.</p>
 
                     <div class="hp-buttons">
-                      <a href="#" target="_blank" class="btn btn-primary">Download CV</a>
+                      <a (click)="downloadResume()" class="btn btn-primary">Download CV</a>
                     </div>
                   </div>
                 </div>
@@ -131,7 +131,7 @@
                 <app-skill-bar [skill]="skill" *ngFor="let skill of featuredSkills"></app-skill-bar>
               </ng-container>
 
-              <div class="more-skill-btn">
+              <div class="more-skill-btn" *ngIf="featuredSkills.length > 0">
                 <a class="btn btn-primary mt-3" routerLink="/resume">See More Skills</a>
               </div>
             </div>
