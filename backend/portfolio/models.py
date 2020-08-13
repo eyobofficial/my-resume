@@ -7,7 +7,7 @@ class Technology(models.Model):
     Technology stacks.
     Example: Programming languages, frameworks, platforms, etc
     """
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=30, unique=True)
 
     class Meta:
         ordering = ('name', )
@@ -30,6 +30,8 @@ class Project(models.Model):
     SCRAPING = 4
     LIBRARY = 5
     BOT = 6
+    SCRIPT = 7
+    SCRAPING = 8
 
     PROJECT_TYPES = (
         (WEBSITE, 'Website'),
@@ -37,7 +39,9 @@ class Project(models.Model):
         (MOBILE, 'Mobile application'),
         (SCRAPING, 'Web scraping'),
         (LIBRARY, 'Library'),
-        (BOT, 'Bot')
+        (BOT, 'Bot'),
+        (SCRIPT, 'Script'),
+        (SCRAPING, 'Web Scrapping')
     )
 
     id = models.UUIDField(primary_key=True, editable=False, default=uuid.uuid4)

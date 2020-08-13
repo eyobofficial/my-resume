@@ -1,0 +1,152 @@
+- model: portfolio.technology
+  pk: 1
+  fields:
+    name: Python
+- model: portfolio.technology
+  pk: 2
+  fields:
+    name: HTML
+- model: portfolio.technology
+  pk: 3
+  fields:
+    name: CSS
+- model: portfolio.technology
+  pk: 4
+  fields:
+    name: Bootstrap
+- model: portfolio.technology
+  pk: 5
+  fields:
+    name: MYSQL
+- model: portfolio.technology
+  pk: 6
+  fields:
+    name: Django
+- model: portfolio.technology
+  pk: 7
+  fields:
+    name: Angular
+- model: portfolio.technology
+  pk: 8
+  fields:
+    name: JavaScript
+- model: portfolio.technology
+  pk: 9
+  fields:
+    name: jQuery
+- model: portfolio.technology
+  pk: 10
+  fields:
+    name: TypeScript
+- model: portfolio.technology
+  pk: 11
+  fields:
+    name: Flask
+- model: portfolio.technology
+  pk: 12
+  fields:
+    name: SQLite
+- model: portfolio.technology
+  pk: 13
+  fields:
+    name: PostgreSQL
+- model: portfolio.technology
+  pk: 14
+  fields:
+    name: Scrapy
+- model: portfolio.technology
+  pk: 15
+  fields:
+    name: Celery
+- model: portfolio.technology
+  pk: 16
+  fields:
+    name: Redis
+- model: portfolio.technology
+  pk: 17
+  fields:
+    name: GCP
+- model: portfolio.technology
+  pk: 18
+  fields:
+    name: AWS
+- model: portfolio.technology
+  pk: 19
+  fields:
+    name: PHP
+- model: portfolio.technology
+  pk: 20
+  fields:
+    name: CodeIgniter
+- model: portfolio.technology
+  pk: 21
+  fields:
+    name: Mongo
+- model: portfolio.technology
+  pk: 22
+  fields:
+    name: Flutter
+- model: portfolio.technology
+  pk: 23
+  fields:
+    name: NativeScript
+- model: portfolio.technology
+  pk: 24
+  fields:
+    name: Electron
+- model: portfolio.technology
+  pk: 25
+  fields:
+    name: React
+- model: portfolio.technology
+  pk: 26
+  fields:
+    name: React Native
+- model: portfolio.technology
+  pk: 27
+  fields:
+    name: DRF
+- model: portfolio.technology
+  pk: 28
+  fields:
+    name: Bash
+- model: portfolio.technology
+  pk: 29
+  fields:
+    name: Docker
+- model: portfolio.technology
+  pk: 30
+  fields:
+    name: Gunicorn
+- model: portfolio.technology
+  pk: 31
+  fields:
+    name: Nginx
+- model: portfolio.technology
+  pk: 32
+  fields:
+    name: Apache
+- model: portfolio.technology
+  pk: 33
+  fields:
+    name: SASS
+- model: portfolio.technology
+  pk: 34
+  fields:
+    name: kubernetes
+- model: portfolio.technology
+  pk: 35
+  fields:
+    name: Vue.js
+- model: portfolio.technology
+  pk: 36
+  fields:
+    name: Ionci
+- model: portfolio.technology
+  pk: 37
+  fields:
+    name: Wagtail
+- model: portfolio.technology
+  pk: 38
+  fields:
+    name: Oauth2.0
