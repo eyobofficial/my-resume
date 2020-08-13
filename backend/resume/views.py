@@ -23,3 +23,10 @@ class CertificateViewSet(ReadOnlyModelViewSet):
 class SkillViewSet(ReadOnlyModelViewSet):
     serializer_class = SkillSerializer
     queryset = Skill.objects.filter(is_published=True)
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        order_by = self.request.query_params.get('order_by')
+        if order_by is not None:
+            qs = qs.order_by(order_by)
+        return qs

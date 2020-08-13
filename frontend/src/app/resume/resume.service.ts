@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http';
 import { environment } from '@environments/environment';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -44,7 +44,8 @@ export class ResumeService {
   getFeaturedSkills(): Observable<ISkill[]> {
     // Returns all published featured skills.
     const url = this.endpoint + 'skills/';
-    return this.http.get<ISkill[]>(url).pipe(
+    const httpOptions = {params: new HttpParams().set('order_by', '-score')};
+    return this.http.get<ISkill[]>(url, httpOptions).pipe(
       catchError(this.handleError),
       map(skills => skills.filter(skill => !!skill.featured))
     );

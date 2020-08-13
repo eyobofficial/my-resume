@@ -59,10 +59,19 @@ class Certificate(models.Model):
         max_length=120,
         help_text='Training institution. Example: College, University, etc'
     )
-    icon = models.ImageField(null=True, blank=True)
+    icon = models.ImageField(
+        null=True, blank=True,
+        width_field='icon_width',
+        height_field='icon_height',
+        help_text='Recommended size is 70x21 px.'
+    )
     date = models.DateField()
     link = models.URLField()
     is_published = models.BooleanField(default=False)
+
+    # Image width & height fields
+    icon_width = models.IntegerField(null=True, blank=True)
+    icon_height = models.IntegerField(null=True, blank=True)
 
     class Meta:
         ordering = ('date', )

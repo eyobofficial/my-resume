@@ -117,11 +117,20 @@ class Testimonial(models.Model):
     id = models.UUIDField(primary_key=True, editable=False, default=uuid.uuid4)
     name = models.CharField('full name', max_length=120)
     title = models.CharField('client title', max_length=120)
-    photo = models.ImageField()
+    photo = models.ImageField(
+        null=True, blank=True,
+        help_text='Recommended size is 80x80 px.',
+        width_field='photo_width',
+        height_field='photo_height'
+    )
     testimony = models.TextField()
     featured = models.BooleanField(default=False)
     is_published = models.BooleanField('published', default=False)
     created_at = models.DateTimeField(auto_now_add=True)
+
+    # Photo width & height fields
+    photo_width = models.IntegerField(null=True, blank=True)
+    photo_height = models.IntegerField(null=True, blank=True)
 
     class Meta:
         ordering = ('-featured', '-created_at')
