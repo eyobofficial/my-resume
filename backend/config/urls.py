@@ -17,15 +17,34 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-
 from django.views.generic import TemplateView
 
+from rest_framework.permissions import AllowAny
+from drf_yasg import openapi
+from drf_yasg.renderers import ReDocRenderer
+from drf_yasg.views import get_schema_view
+
+
+# Schema Vie
+ReDocRenderer.template = 'shared/drf-yasg-docs.html'  # Overwrite `redoc.html`
+schema_view = get_schema_view(
+    openapi.Info(
+        title='Resume API',
+        default_version='v1',
+        description='Endpoints for Eyob Tariku\'s resume & portfolio.',
+        contact=openapi.Contact(email='eyob@zede.tech'),
+        license=openapi.License(name='BSD License')
+    ),
+    public=True,
+    permission_classes=(AllowAny, )
+)
+
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='shared/default.html')),
     path('portfolio/', include('portfolio.urls', namespace='portfolio')),
     path('resume/', include('resume.urls', namespace='resume')),
     path('contacts/', include('contacts.urls', namespace='contacts')),
-    path('admin/', admin.site.urls)
+    path('admin/', admin.site.urls),
+    path('', schema_view.with_ui('redoc', cache_timeout=0))
 ]
 
 # Media Assets

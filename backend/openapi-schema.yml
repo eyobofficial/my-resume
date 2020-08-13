@@ -1,0 +1,796 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /portfolio/projects/:
+    get:
+      operationId: listProjects
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    url:
+                      type: string
+                      readOnly: true
+                    slug:
+                      type: string
+                      maxLength: 50
+                      pattern: ^[-a-zA-Z0-9_]+$
+                    name:
+                      type: string
+                      maxLength: 120
+                    summary:
+                      type: string
+                    description:
+                      type: string
+                    technologies:
+                      type: array
+                      items:
+                        type: string
+                    type:
+                      type: string
+                      readOnly: true
+                    private:
+                      type: boolean
+                    date:
+                      type: string
+                      format: date
+                    featured:
+                      type: boolean
+                    project_url:
+                      type: string
+                      format: uri
+                      maxLength: 200
+                      pattern: "^(?:[a-z0-9\\.\\-\\+]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:25[0-5]|2[0-4]\\\
+                        d|[0-1]?\\d?\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}|\\\
+                        [[0-9a-f:\\.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1\
+                        -\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\\
+                        .(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\\
+                        .?|localhost))(?::\\d{2,5})?(?:[/?#][^\\s]*)?\\Z"
+                    repository:
+                      type: string
+                      format: uri
+                      maxLength: 200
+                      pattern: "^(?:[a-z0-9\\.\\-\\+]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:25[0-5]|2[0-4]\\\
+                        d|[0-1]?\\d?\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}|\\\
+                        [[0-9a-f:\\.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1\
+                        -\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\\
+                        .(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\\
+                        .?|localhost))(?::\\d{2,5})?(?:[/?#][^\\s]*)?\\Z"
+                    thumbnail:
+                      type: string
+                      format: binary
+                      description: Recommended size is 429x286 px.
+                    video:
+                      type: string
+                      format: uri
+                      maxLength: 200
+                      pattern: "^(?:[a-z0-9\\.\\-\\+]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:25[0-5]|2[0-4]\\\
+                        d|[0-1]?\\d?\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}|\\\
+                        [[0-9a-f:\\.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1\
+                        -\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\\
+                        .(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\\
+                        .?|localhost))(?::\\d{2,5})?(?:[/?#][^\\s]*)?\\Z"
+                    photos:
+                      type: array
+                      items:
+                        properties:
+                          title:
+                            type: string
+                            maxLength: 120
+                          photo:
+                            type: string
+                            format: binary
+                            description: Recommended size is 870x580 px.
+                        required:
+                        - title
+                        - photo
+                      readOnly: true
+                    facebook:
+                      type: string
+                      format: uri
+                      maxLength: 200
+                      pattern: "^(?:[a-z0-9\\.\\-\\+]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:25[0-5]|2[0-4]\\\
+                        d|[0-1]?\\d?\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}|\\\
+                        [[0-9a-f:\\.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1\
+                        -\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\\
+                        .(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\\
+                        .?|localhost))(?::\\d{2,5})?(?:[/?#][^\\s]*)?\\Z"
+                    twitter:
+                      type: string
+                      format: uri
+                      maxLength: 200
+                      pattern: "^(?:[a-z0-9\\.\\-\\+]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:25[0-5]|2[0-4]\\\
+                        d|[0-1]?\\d?\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}|\\\
+                        [[0-9a-f:\\.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1\
+                        -\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\\
+                        .(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\\
+                        .?|localhost))(?::\\d{2,5})?(?:[/?#][^\\s]*)?\\Z"
+                    linkedIn:
+                      type: string
+                      format: uri
+                      maxLength: 200
+                      pattern: "^(?:[a-z0-9\\.\\-\\+]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:25[0-5]|2[0-4]\\\
+                        d|[0-1]?\\d?\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}|\\\
+                        [[0-9a-f:\\.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1\
+                        -\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\\
+                        .(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\\
+                        .?|localhost))(?::\\d{2,5})?(?:[/?#][^\\s]*)?\\Z"
+                  required:
+                  - slug
+                  - name
+                  - summary
+                  - technologies
+                  - date
+                  - thumbnail
+          description: ''
+  /portfolio/projects/{slug}/:
+    get:
+      operationId: retrieveProject
+      description: ''
+      parameters:
+      - name: slug
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  url:
+                    type: string
+                    readOnly: true
+                  slug:
+                    type: string
+                    maxLength: 50
+                    pattern: ^[-a-zA-Z0-9_]+$
+                  name:
+                    type: string
+                    maxLength: 120
+                  summary:
+                    type: string
+                  description:
+                    type: string
+                  technologies:
+                    type: array
+                    items:
+                      type: string
+                  type:
+                    type: string
+                    readOnly: true
+                  private:
+                    type: boolean
+                  date:
+                    type: string
+                    format: date
+                  featured:
+                    type: boolean
+                  project_url:
+                    type: string
+                    format: uri
+                    maxLength: 200
+                    pattern: "^(?:[a-z0-9\\.\\-\\+]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:25[0-5]|2[0-4]\\\
+                      d|[0-1]?\\d?\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}|\\\
+                      [[0-9a-f:\\.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1\
+                      -\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\\
+                      .(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\\
+                      .?|localhost))(?::\\d{2,5})?(?:[/?#][^\\s]*)?\\Z"
+                  repository:
+                    type: string
+                    format: uri
+                    maxLength: 200
+                    pattern: "^(?:[a-z0-9\\.\\-\\+]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:25[0-5]|2[0-4]\\\
+                      d|[0-1]?\\d?\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}|\\\
+                      [[0-9a-f:\\.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1\
+                      -\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\\
+                      .(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\\
+                      .?|localhost))(?::\\d{2,5})?(?:[/?#][^\\s]*)?\\Z"
+                  thumbnail:
+                    type: string
+                    format: binary
+                    description: Recommended size is 429x286 px.
+                  video:
+                    type: string
+                    format: uri
+                    maxLength: 200
+                    pattern: "^(?:[a-z0-9\\.\\-\\+]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:25[0-5]|2[0-4]\\\
+                      d|[0-1]?\\d?\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}|\\\
+                      [[0-9a-f:\\.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1\
+                      -\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\\
+                      .(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\\
+                      .?|localhost))(?::\\d{2,5})?(?:[/?#][^\\s]*)?\\Z"
+                  photos:
+                    type: array
+                    items:
+                      properties:
+                        title:
+                          type: string
+                          maxLength: 120
+                        photo:
+                          type: string
+                          format: binary
+                          description: Recommended size is 870x580 px.
+                      required:
+                      - title
+                      - photo
+                    readOnly: true
+                  facebook:
+                    type: string
+                    format: uri
+                    maxLength: 200
+                    pattern: "^(?:[a-z0-9\\.\\-\\+]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:25[0-5]|2[0-4]\\\
+                      d|[0-1]?\\d?\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}|\\\
+                      [[0-9a-f:\\.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1\
+                      -\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\\
+                      .(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\\
+                      .?|localhost))(?::\\d{2,5})?(?:[/?#][^\\s]*)?\\Z"
+                  twitter:
+                    type: string
+                    format: uri
+                    maxLength: 200
+                    pattern: "^(?:[a-z0-9\\.\\-\\+]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:25[0-5]|2[0-4]\\\
+                      d|[0-1]?\\d?\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}|\\\
+                      [[0-9a-f:\\.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1\
+                      -\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\\
+                      .(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\\
+                      .?|localhost))(?::\\d{2,5})?(?:[/?#][^\\s]*)?\\Z"
+                  linkedIn:
+                    type: string
+                    format: uri
+                    maxLength: 200
+                    pattern: "^(?:[a-z0-9\\.\\-\\+]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:25[0-5]|2[0-4]\\\
+                      d|[0-1]?\\d?\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}|\\\
+                      [[0-9a-f:\\.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1\
+                      -\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\\
+                      .(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\\
+                      .?|localhost))(?::\\d{2,5})?(?:[/?#][^\\s]*)?\\Z"
+                required:
+                - slug
+                - name
+                - summary
+                - technologies
+                - date
+                - thumbnail
+          description: ''
+  /portfolio/testimonials/:
+    get:
+      operationId: listTestimonials
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                      readOnly: true
+                    url:
+                      type: string
+                      readOnly: true
+                    name:
+                      type: string
+                      maxLength: 120
+                    title:
+                      type: string
+                      maxLength: 120
+                    photo:
+                      type: string
+                      format: binary
+                      nullable: true
+                      description: Recommended size is 80x80 px.
+                    testimony:
+                      type: string
+                    featured:
+                      type: boolean
+                  required:
+                  - name
+                  - title
+                  - testimony
+          description: ''
+  /portfolio/testimonials/{id}/:
+    get:
+      operationId: retrieveTestimonial
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A UUID string identifying this testimonial.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                    readOnly: true
+                  url:
+                    type: string
+                    readOnly: true
+                  name:
+                    type: string
+                    maxLength: 120
+                  title:
+                    type: string
+                    maxLength: 120
+                  photo:
+                    type: string
+                    format: binary
+                    nullable: true
+                    description: Recommended size is 80x80 px.
+                  testimony:
+                    type: string
+                  featured:
+                    type: boolean
+                required:
+                - name
+                - title
+                - testimony
+          description: ''
+  /resume/educations/:
+    get:
+      operationId: listEducations
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                      readOnly: true
+                    url:
+                      type: string
+                      readOnly: true
+                    title:
+                      type: string
+                      maxLength: 120
+                    institute:
+                      type: string
+                      description: 'Educational institution. Example: College, University,
+                        etc'
+                      maxLength: 120
+                    description:
+                      type: string
+                    year:
+                      type: integer
+                  required:
+                  - title
+                  - institute
+                  - year
+          description: ''
+  /resume/educations/{id}/:
+    get:
+      operationId: retrieveEducation
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A UUID string identifying this Educational History.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                    readOnly: true
+                  url:
+                    type: string
+                    readOnly: true
+                  title:
+                    type: string
+                    maxLength: 120
+                  institute:
+                    type: string
+                    description: 'Educational institution. Example: College, University,
+                      etc'
+                    maxLength: 120
+                  description:
+                    type: string
+                  year:
+                    type: integer
+                required:
+                - title
+                - institute
+                - year
+          description: ''
+  /resume/experiences/:
+    get:
+      operationId: listExperiences
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                      readOnly: true
+                    url:
+                      type: string
+                      readOnly: true
+                    title:
+                      type: string
+                      maxLength: 120
+                    place:
+                      type: string
+                      maxLength: 120
+                    description:
+                      type: string
+                    start:
+                      type: integer
+                    end:
+                      type: integer
+                      nullable: true
+                    still_working:
+                      type: boolean
+                  required:
+                  - title
+                  - place
+                  - start
+          description: ''
+  /resume/experiences/{id}/:
+    get:
+      operationId: retrieveExperience
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A UUID string identifying this Work Experience.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                    readOnly: true
+                  url:
+                    type: string
+                    readOnly: true
+                  title:
+                    type: string
+                    maxLength: 120
+                  place:
+                    type: string
+                    maxLength: 120
+                  description:
+                    type: string
+                  start:
+                    type: integer
+                  end:
+                    type: integer
+                    nullable: true
+                  still_working:
+                    type: boolean
+                required:
+                - title
+                - place
+                - start
+          description: ''
+  /resume/certificates/:
+    get:
+      operationId: listCertificates
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                      readOnly: true
+                    url:
+                      type: string
+                      readOnly: true
+                    title:
+                      type: string
+                      maxLength: 120
+                    institute:
+                      type: string
+                      description: 'Training institution. Example: College, University,
+                        etc'
+                      maxLength: 120
+                    icon:
+                      type: string
+                      format: binary
+                      description: Recommended size is 70x21 px.
+                    date:
+                      type: string
+                      format: date
+                    link:
+                      type: string
+                      format: uri
+                      maxLength: 200
+                      pattern: "^(?:[a-z0-9\\.\\-\\+]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:25[0-5]|2[0-4]\\\
+                        d|[0-1]?\\d?\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}|\\\
+                        [[0-9a-f:\\.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1\
+                        -\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\\
+                        .(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\\
+                        .?|localhost))(?::\\d{2,5})?(?:[/?#][^\\s]*)?\\Z"
+                  required:
+                  - title
+                  - institute
+                  - icon
+                  - date
+                  - link
+          description: ''
+  /resume/certificates/{id}/:
+    get:
+      operationId: retrieveCertificate
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A UUID string identifying this Awarded Certificates.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                    readOnly: true
+                  url:
+                    type: string
+                    readOnly: true
+                  title:
+                    type: string
+                    maxLength: 120
+                  institute:
+                    type: string
+                    description: 'Training institution. Example: College, University,
+                      etc'
+                    maxLength: 120
+                  icon:
+                    type: string
+                    format: binary
+                    description: Recommended size is 70x21 px.
+                  date:
+                    type: string
+                    format: date
+                  link:
+                    type: string
+                    format: uri
+                    maxLength: 200
+                    pattern: "^(?:[a-z0-9\\.\\-\\+]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:25[0-5]|2[0-4]\\\
+                      d|[0-1]?\\d?\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}|\\\
+                      [[0-9a-f:\\.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1\
+                      -\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\\
+                      .(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\\
+                      .?|localhost))(?::\\d{2,5})?(?:[/?#][^\\s]*)?\\Z"
+                required:
+                - title
+                - institute
+                - icon
+                - date
+                - link
+          description: ''
+  /resume/skills/:
+    get:
+      operationId: listSkills
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                      readOnly: true
+                    url:
+                      type: string
+                      readOnly: true
+                    title:
+                      type: string
+                      maxLength: 120
+                    score:
+                      type: integer
+                      maximum: 100
+                      minimum: 0
+                    type:
+                      enum:
+                      - 1
+                      - 2
+                      - 3
+                      - 4
+                    description:
+                      type: string
+                    featured:
+                      type: boolean
+                  required:
+                  - title
+                  - score
+                  - type
+          description: ''
+  /resume/skills/{id}/:
+    get:
+      operationId: retrieveSkill
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A UUID string identifying this skill.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                    readOnly: true
+                  url:
+                    type: string
+                    readOnly: true
+                  title:
+                    type: string
+                    maxLength: 120
+                  score:
+                    type: integer
+                    maximum: 100
+                    minimum: 0
+                  type:
+                    enum:
+                    - 1
+                    - 2
+                    - 3
+                    - 4
+                  description:
+                    type: string
+                  featured:
+                    type: boolean
+                required:
+                - title
+                - score
+                - type
+          description: ''
+  /contacts/messages/:
+    post:
+      operationId: CreateMessage
+      description: Create new message instances.
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema: &id001
+              properties:
+                name:
+                  type: string
+                  maxLength: 120
+                email:
+                  type: string
+                  format: email
+                  maxLength: 254
+                subject:
+                  type: string
+                  maxLength: 255
+                message:
+                  type: string
+              required:
+              - name
+              - email
+              - subject
+              - message
+          application/x-www-form-urlencoded:
+            schema: *id001
+          multipart/form-data:
+            schema: *id001
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  name:
+                    type: string
+                    maxLength: 120
+                  email:
+                    type: string
+                    format: email
+                    maxLength: 254
+                  subject:
+                    type: string
+                    maxLength: 255
+                  message:
+                    type: string
+                required:
+                - name
+                - email
+                - subject
+                - message
+          description: ''
+  /contacts/subscriptions/:
+    post:
+      operationId: CreateSubscription
+      description: Create new e-mail subscription instances.
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema: &id002
+              properties:
+                email:
+                  type: string
+                  format: email
+              required:
+              - email
+          application/x-www-form-urlencoded:
+            schema: *id002
+          multipart/form-data:
+            schema: *id002
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  email:
+                    type: string
+                    format: email
+                required:
+                - email
+          description: ''
