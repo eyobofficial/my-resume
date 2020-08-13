@@ -14,3 +14,25 @@
 #testimonials-slide {
   display: block;
 }
+
+.featured-skills-col {
+  border-right: 1.5px solid #333;
+}
+
+.featured-skills {
+  width: 85%;
+}
+
+@media(max-width: 576px) {
+  .featured-skills-col {
+    border-right: none;
+  }
+
+  .featured-skills {
+    width: 100%;
+  }
+
+  .more-skill-btn {
+    text-align: center !important;
+  }
+}

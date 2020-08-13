@@ -1,0 +1,40 @@
+<div class="subscription-block mt-3">
+  <h2 class="text-center">Subscribe Now</h2>
+  <p class="text-center subtitle text-muted">Be the first to receive my latest posts &amp; special offers.</p>
+  <form #subscriptionForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="input-group mb-0">
+      <input
+      class="form-control"
+      placeholder="Your email"
+      name="email"
+      autocomplete="off"
+      required email
+      (keyup)="resetForm()"
+      (keyup.enter)="onSubmit()"
+      ngModel #emailInput="ngModel">
+      <div class="input-group-append">
+        <button class="btn btn-primary btn-outline" type="submit" [ngStyle]="{cursor: isSending ? 'not-allowed' : 'pointer'}">
+          <i [ngClass]="{'far fa-paper-plane': !isSending, 'fas fa-circle-notch fa-spin': isSending}"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <!-- Validation Error -->
+      <ng-container *ngIf="!isSubmitted && emailInput.touched && subscriptionForm.invalid">
+        <p class="text-danger text-center" *ngIf="emailInput.errors?.required">E-mail is required.</p>
+        <p class="text-danger text-center" *ngIf="emailInput.errors?.email">Please enter a valid e-mail.</p>
+      </ng-container>
+
+      <!-- Error -->
+      <p class="text-danger text-center" *ngIf="isSubmitted && isFailed">
+        <i class="fas fa-exclamation-circle"></i> Something went wrong. Please try again.
+      </p>
+
+      <!-- Success -->
+      <p class="text-primary text-center" *ngIf="isSubmitted && isSuccess">
+        <i class="fas fa-check-circle"></i> Thank you for subscribing.
+      </p>
+    </div>
+  </form>
+</div>

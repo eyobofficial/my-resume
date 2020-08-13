@@ -5,7 +5,9 @@ import { environment } from '@environments/environment';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
 import { ITestimonial } from '@portfolio/models/testimonial.interface';
+import { ISkill } from '@resume/models/skill.interface';
 import { PortfolioService } from '@portfolio/portfolio.service';
+import { ResumeService } from '@resume/resume.service';
 
 @Component({
   templateUrl: './about.component.html',
@@ -18,13 +20,19 @@ export class AboutComponent implements OnInit, OnDestroy {
   isFetchingTestimonial = false;
   private testimonialSub: Subscription;
 
+  isFetchingSkills = false;
+  featuredSkills: ISkill[] = [];
+  private skillSub: Subscription;
+
   constructor(private titleService: Title,
+              private resumeService: ResumeService,
               private portfolioService: PortfolioService) {}
 
   ngOnInit(): void {
     this.titleService.setTitle(this.pageTitle);
     this.initTestimonialCarousel();
     this.fetchTestimonials();
+    this.fetchFeaturedSkills();
   }
 
   private fetchTestimonials(): void {
@@ -35,6 +43,16 @@ export class AboutComponent implements OnInit, OnDestroy {
         this.isFetchingTestimonial = false;
       }
     );
+  }
+
+  private fetchFeaturedSkills(): void {
+    this.isFetchingSkills = true;
+    this.skillSub = this.resumeService.getFeaturedSkills().subscribe(
+      (skills: ISkill[]) => {
+        this.featuredSkills = skills;
+        this.isFetchingSkills = false;
+      }
+    )
   }
 
   private initTestimonialCarousel(): void {
@@ -63,6 +81,7 @@ export class AboutComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.testimonialSub.unsubscribe();
+    this.skillSub.unsubscribe();
   }
 
 }

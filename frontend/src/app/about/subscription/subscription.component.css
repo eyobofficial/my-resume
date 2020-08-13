@@ -1,0 +1,63 @@
+.subscription-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.subscription-block .subtitle {
+  padding: 8px 0;
+}
+
+.subscription-block form {
+  align-self: center;
+  width: 75%;
+}
+
+.subscription-block .input-group input.form-control {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  padding: 20.5px;
+}
+
+.subscription-block .input-group input.form-control:focus {
+  min-width: 0;
+}
+
+.subscription-block form .input-group-append .btn-outline {
+  background: transparent;
+  border-left: 0;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-color: #555;
+  box-shadow: none;
+}
+
+.subscription-block form .input-group-append .btn-outline i {
+  color: #007ced;
+  font-size: 18px;
+}
+
+.subscription-block form .input-group-append .btn-outline:hover {
+  background-color: #007ced;
+  transition: 0.3s all;
+}
+
+.subscription-block form .input-group-append .btn-outline:hover i {
+  color: #d5d5d5;;
+  transition: 0.3s all;
+}
+
+.info-block {
+  min-height: 30px;
+}
+
+@media(max-width: 576px) {
+  .subscription-block {
+    margin-top: 40px;
+  }
+
+  .subscription-block form {
+    width: 90%;
+  }
+}

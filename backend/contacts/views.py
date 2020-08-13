@@ -1,8 +1,8 @@
 from rest_framework.generics import CreateAPIView
 
 from .emails import ContactMessageEmail
-from .serializers import MessageSerializer
-from .models import Message
+from .serializers import MessageSerializer, SubscriptionSerializer
+from .models import Message, Subscription
 
 
 class MessageCreateAPIView(CreateAPIView):
@@ -15,3 +15,11 @@ class MessageCreateAPIView(CreateAPIView):
     def perform_create(self, serializer):
         obj = serializer.save()
         ContactMessageEmail(obj).send()
+
+
+class SubscriptionCreateAPIView(CreateAPIView):
+    """
+    Create new e-mail subscription instances.
+    """
+    serializer_class = SubscriptionSerializer
+    queryset = Subscription.objects.all()

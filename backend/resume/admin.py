@@ -28,7 +28,7 @@ class CertificateAdmin(admin.ModelAdmin):
 
 @admin.register(Skill)
 class SkillAdmin(admin.ModelAdmin):
-    list_display = ('title', 'score', 'is_published', 'order')
+    list_display = ('title', 'score', 'is_published', 'featured', 'order')
     list_editable = ('score', 'order')
-    list_filter = ('is_published', )
+    list_filter = ('is_published', 'featured')
     search_fields = ('title', )

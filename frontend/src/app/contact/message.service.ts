@@ -9,15 +9,25 @@ import { IMessage } from './message.interface';
 @Injectable({providedIn: 'root'})
 export class MessageService {
 
-  private endpoint = `${environment.api.url}/contacts/messages/`;
+  private endpoint = `${environment.api.url}/contacts`;
 
   constructor(private http: HttpClient) {}
 
   sendMessage(message: IMessage): Observable<boolean> {
     // Send new message
-    return this.http.post<IMessage>(this.endpoint, message).pipe(
+    const url = this.endpoint + '/messages/';
+    return this.http.post<IMessage>(url, message).pipe(
       catchError(this.handleError),
       map(message => !!message)
+    );
+  }
+
+  createSubscription(emailObj: {email: string}): Observable<boolean> {
+    // Create newsletter subscription.
+    const url = this.endpoint + '/subscriptions/';
+    return this.http.post<{email: string}>(url, emailObj).pipe(
+      catchError(this.handleError),
+      map((resp: {email: string}) => !!resp.email)
     );
   }
 

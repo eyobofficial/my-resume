@@ -115,60 +115,32 @@
               </div><!-- / End of Testimonial Slide -->
             </ng-container>
 
-            <div class="p-20"></div>
-
-            <div class="row">
-              <div class=" col-xs-12 col-sm-12">
-                <div class="block-title">
-                  <h2>Fun Facts</h2>
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class=" col-xs-12 col-sm-3">
-                <div class="lm-info-block gray-default">
-                  <i class="linecons linecons-star"></i>
-                  <h4>Github Commits</h4>
-                  <span class="lm-info-block-value">4,300+</span>
-                  <span class="lm-info-block-text"></span>
-                </div>
-              </div>
-
-              <div class=" col-xs-12 col-sm-3">
-                <div class="lm-info-block gray-default">
-                  <i class="linecons linecons-diamond"></i>
-                  <h4>Successful Projects</h4>
-                  <span class="lm-info-block-value">35+</span>
-                  <span class="lm-info-block-text"></span>
-                </div>
-              </div>
-
-              <div class=" col-xs-12 col-sm-3 ">
-                <div class="lm-info-block gray-default">
-                  <i class="linecons linecons-calendar"></i>
-                  <h4>Work Experience</h4>
-                  <span class="lm-info-block-value">4+</span>
-                  <span class="lm-info-block-text"></span>
-                </div>
-              </div>
-
-              <div class=" col-xs-12 col-sm-3 ">
-                <div class="lm-info-block gray-default">
-                  <i class="linecons linecons-cup"></i>
-                  <h4>Coffee Consumed</h4>
-                  <span class="lm-info-block-value">1,286</span>
-                  <span class="lm-info-block-text"></span>
-                </div>
-              </div>
-            </div>
-
-            <div class="p-60"></div>
+            <div class="p-40"></div>
           </div>
         </div>
 
         <!-- Skills -->
-        <app-skills></app-skills>
+        <div class="row">
+          <div class="col-sm-12 col-md-6 featured-skills-col">
+            <div class="block-title">
+              <h2>My Featured Skills</h2>
+            </div>
+            <div class="featured-skills mt-2">
+              <app-spinner [height]="150" [widthPercent]="80" *ngIf="isFetchingSkills"></app-spinner>
+              <ng-container *ngIf="!isFetchingSkills">
+                <app-skill-bar [skill]="skill" *ngFor="let skill of featuredSkills"></app-skill-bar>
+              </ng-container>
+
+              <div class="more-skill-btn">
+                <a class="btn btn-primary mt-3" routerLink="/resume">See More Skills</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6">
+            <app-subscription></app-subscription>
+          </div>
+        </div>
       </div>
     </div>
   </div>

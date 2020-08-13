@@ -17,3 +17,21 @@ class Message(models.Model):
 
     def __str__(self):
         return self.subject
+
+
+class Subscription(models.Model):
+    """
+    User newsletter e-mail subscription.
+    """
+    email = models.EmailField(unique=True)
+    is_subscribed = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ('-created_at', )
+        verbose_name = 'E-mail subscription'
+        verbose_name_plural = 'E-mail subscriptions'
+
+    def __str__(self):
+        return self.email
