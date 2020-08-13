@@ -12,7 +12,7 @@
     <!-- /Text Logo -->
 
     <!-- Navigation -->
-    <div class="site-nav mobile-menu-hide">
+    <div class="site-nav animate" [ngClass]="{'mobile-menu-hide': !mobileNav}">
       <ul class="leven-classic-menu site-main-menu">
         <li class="menu-item" routerLinkActive="current-menu-item" [routerLinkActiveOptions]="{exact: true}">
           <a routerLink="/">About Me</a>
@@ -36,7 +36,7 @@
       </ul>
     </div>
 
-    <a class="menu-toggle mobile-visible">
+    <a class="menu-toggle mobile-visible" (click)="toggleMobileNav()">
       <i class="fa fa-bars"></i>
     </a>
   </div>
