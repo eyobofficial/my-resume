@@ -7,7 +7,7 @@
             <div class="row">
               <div class="col-sm-12 col-md-6 col-lg-6">
                 <div class="inner-content">
-                  <div class="fill-block" style="background-image: url(/assets/img/eyob_tariku.jpg);"></div>
+                  <div class="fill-block" style="background-image: url(/assets/img/cover.jpg);"></div>
                 </div>
               </div>
               <div class="col-sm-12 col-md-6 col-lg-6">
@@ -126,7 +126,7 @@
               <h2>My Featured Skills</h2>
             </div>
             <div class="featured-skills mt-2">
-              <app-spinner [height]="150" [widthPercent]="80" *ngIf="isFetchingSkills"></app-spinner>
+              <app-spinner [height]="250" [widthPercent]="80" *ngIf="isFetchingSkills"></app-spinner>
               <ng-container *ngIf="!isFetchingSkills">
                 <app-skill-bar [skill]="skill" *ngFor="let skill of featuredSkills"></app-skill-bar>
               </ng-container>
