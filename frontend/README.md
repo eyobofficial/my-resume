@@ -1,4 +1,0 @@
-# Frontend Client
-
-## Angular Application
-
