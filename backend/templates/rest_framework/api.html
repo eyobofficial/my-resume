@@ -1,1 +1,12 @@
 {% extends 'rest_framework/base.html' %}
+{% load static %}
+
+{% block bootstrap_theme %}
+    <link rel="stylesheet" href="{% static 'superhero.min.css' %}" type="text/css">
+{% endblock %}
+
+{% block title %}Resume API - Eyob Tariku{% endblock %}
+
+{% block branding %}
+    <h3 style="margin: 15px 0 24px; font-weight: bold;">RESUME API</h3>
+{% endblock %}

@@ -26,7 +26,7 @@ from drf_yasg.views import get_schema_view
 
 
 # Schema Vie
-ReDocRenderer.template = 'shared/drf-yasg-docs.html'  # Overwrite `redoc.html`
+ReDocRenderer.template = 'drf-yasg-docs.html'  # Overwrite `redoc.html`
 schema_view = get_schema_view(
     openapi.Info(
         title='Resume API',
