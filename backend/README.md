@@ -6,14 +6,8 @@
 
 ## Packages
 - Django 3.0.7
-- Django REST Framework
-- Gunicorn
-- Celery
+- Django REST Framework 3.11.0
 - Python Decouple
 - Django Environ
 - Pendulum
-
-## DevOps Tools
-- Travis CI
-- Docker
-- Nginx
+- drf-yasg
