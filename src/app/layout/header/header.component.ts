@@ -11,4 +11,8 @@ export class HeaderComponent {
   toggleMobileNav(): void {
     this.mobileNav = !this.mobileNav;
   }
+
+  hideMobileNav(): void {
+    this.mobileNav = false;
+  }
 }

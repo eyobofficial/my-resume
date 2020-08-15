@@ -14,15 +14,15 @@
     <!-- Navigation -->
     <div class="site-nav animate" [ngClass]="{'mobile-menu-hide': !mobileNav}">
       <ul class="leven-classic-menu site-main-menu">
-        <li class="menu-item" routerLinkActive="current-menu-item" [routerLinkActiveOptions]="{exact: true}">
+        <li class="menu-item" (click)="hideMobileNav()" routerLinkActive="current-menu-item" [routerLinkActiveOptions]="{exact: true}">
           <a routerLink="/">About Me</a>
         </li>
 
-        <li class="menu-item" routerLinkActive="current-menu-item">
+        <li class="menu-item" (click)="hideMobileNav()" routerLinkActive="current-menu-item">
           <a routerLink="/resume">Resume</a>
         </li>
 
-        <li class="menu-item" routerLinkActive="current-menu-item">
+        <li class="menu-item" (click)="hideMobileNav()" routerLinkActive="current-menu-item">
           <a routerLink="/portfolio">Portfolio</a>
         </li>
 
@@ -30,7 +30,7 @@
           <a routerLink="/blog">Blog</a>
         </li> -->
 
-        <li class="menu-item" routerLinkActive="current-menu-item">
+        <li class="menu-item" (click)="hideMobileNav()" routerLinkActive="current-menu-item">
           <a routerLink="/contact">Contact</a>
         </li>
       </ul>
