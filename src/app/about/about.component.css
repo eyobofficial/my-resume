@@ -1,7 +1,7 @@
 .fill-block {
   min-height: 550px !important;
   border-radius: 10px;
-  background-image: url("~/assets/img/cover.jpg");
+  background-image: url("assets/img/cover.jpg");
 }
 
 .hp-text-block {
