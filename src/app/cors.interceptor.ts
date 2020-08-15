@@ -5,7 +5,7 @@ export class CorsInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler) {
     const modifiedRequest = request.clone({
-      headers: request.headers.set(
+      headers: request.headers.append(
         'access-control-allow-orign', environment.api.url
       )
     });
