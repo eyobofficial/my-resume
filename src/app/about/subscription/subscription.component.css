@@ -54,7 +54,7 @@
 
 @media(max-width: 576px) {
   .subscription-block {
-    margin-top: 40px;
+    margin-top: 30px !important;
   }
 
   .subscription-block form {

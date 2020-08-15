@@ -5,7 +5,9 @@
     </div>
     <app-spinner [height]="150" [widthPercent]="80" *ngIf="frontendSkills.isLoading"></app-spinner>
     <ng-container *ngIf="!frontendSkills.isLoading">
-      <app-skill-bar [skill]="skill" *ngFor="let skill of frontendSkills.data"></app-skill-bar>
+      <div class="skill-bar-container" *ngFor="let skill of frontendSkills.data">
+        <app-skill-bar [skill]="skill"></app-skill-bar>
+      </div>
     </ng-container>
   </div>
 
@@ -15,7 +17,9 @@
     </div>
     <app-spinner [height]="150" [widthPercent]="80" *ngIf="backendSkills.isLoading"></app-spinner>
     <ng-container *ngIf="!backendSkills.isLoading">
-      <app-skill-bar [skill]="skill" *ngFor="let skill of backendSkills.data"></app-skill-bar>
+      <div class="skill-bar-container" *ngFor="let skill of backendSkills.data">
+        <app-skill-bar [skill]="skill"></app-skill-bar>
+      </div>
     </ng-container>
   </div>
 
@@ -25,7 +29,9 @@
     </div>
     <app-spinner [height]="150" [widthPercent]="80" *ngIf="devopsSkills.isLoading"></app-spinner>
     <ng-container *ngIf="!devopsSkills.isLoading">
-      <app-skill-bar [skill]="skill" *ngFor="let skill of devopsSkills.data"></app-skill-bar>
+      <div class="skill-bar-container" *ngFor="let skill of devopsSkills.data">
+        <app-skill-bar [skill]="skill"></app-skill-bar>
+      </div>
     </ng-container>
   </div>
 </div>

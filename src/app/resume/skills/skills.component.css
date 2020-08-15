@@ -1,0 +1,14 @@
+.skill-bar-container {
+  width: 95%;
+  margin-bottom: 1.2rem;
+}
+
+@media (max-width: 576px) {
+  .skill-bar-container {
+    width: 100%;
+  }
+
+  .skill-item:not(:last-child) {
+    margin-bottom: 25px;
+  }
+}

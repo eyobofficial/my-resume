@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { SharedModule } from '@shared/shared.module';
 import { ResumeComponent } from './resume.component';
-import { SkillsComponent } from '../shared/skills/skills.component';
+import { SkillsComponent } from './skills/skills.component';
 
 const routes: Routes = [
   {path: '', component: ResumeComponent}
@@ -12,7 +12,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    ResumeComponent
+    ResumeComponent,
+    SkillsComponent
   ],
   imports: [
     HttpClientModule,

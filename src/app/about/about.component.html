@@ -128,7 +128,9 @@
             <div class="featured-skills mt-2">
               <app-spinner [height]="250" [widthPercent]="80" *ngIf="isFetchingSkills"></app-spinner>
               <ng-container *ngIf="!isFetchingSkills">
-                <app-skill-bar [skill]="skill" *ngFor="let skill of featuredSkills"></app-skill-bar>
+                <div class="skill-bar-container" *ngFor="let skill of featuredSkills">
+                  <app-skill-bar [skill]="skill"></app-skill-bar>
+                </div>
               </ng-container>
 
               <div class="more-skill-btn" *ngIf="featuredSkills.length > 0">
