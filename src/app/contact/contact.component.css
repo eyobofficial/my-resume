@@ -16,3 +16,11 @@
 .message i.icon {
   font-size: 18px;
 }
+
+.fa-circle {
+  color: #d5d5d5;
+  display: inline;
+  font-size: 8px;
+  padding-right: 3px;
+  padding-left: 3px;
+}
