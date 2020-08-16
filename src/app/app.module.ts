@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
-import { CorsInterceptor } from './cors.interceptor';
 
 @NgModule({
   declarations: [
@@ -24,8 +23,7 @@ import { CorsInterceptor } from './cors.interceptor';
     NgbModule
   ],
   providers: [
-    Title,
-    {provide: HTTP_INTERCEPTORS, useClass: CorsInterceptor, multi: true}
+    Title
   ],
   bootstrap: [AppComponent]
 })
