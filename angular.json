@@ -52,6 +52,7 @@
               "src/styles/normalize.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/linearicons/dist/web-font/style.css",
               "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
               "src/styles/theme.css",
               "src/styles/styles.css"
