@@ -24,6 +24,15 @@
   width: 85%;
 }
 
+.hp-text-block p {
+  line-height: 2;
+}
+
+mark {
+  background-color: rgba(100, 100, 100, 0.6);
+  border-radius: 4px;
+}
+
 @media(max-width: 576px) {
   .featured-skills-col {
     border-right: none;

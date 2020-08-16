@@ -80,6 +80,7 @@ export class ResumeService {
 
   private handleError(error: HttpErrorResponse): Observable<any> {
     // Handle HTTP Error
+    console.log('Skills error: ', error);
     return throwError(error);
   }
 }

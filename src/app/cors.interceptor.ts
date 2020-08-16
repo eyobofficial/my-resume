@@ -4,11 +4,11 @@ import { environment } from '@environments/environment';
 export class CorsInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler) {
-    const modifiedRequest = request.clone({
-      headers: request.headers.append(
-        'access-control-allow-orign', environment.api.url
-      )
-    });
-    return next.handle(modifiedRequest);
+    // const modifiedRequest = request.clone({
+    //   headers: request.headers.append(
+    //     'access-control-allow-orign', environment.api.url
+    //   )
+    // });
+    return next.handle(request);
   }
 }
