@@ -75,7 +75,7 @@ class Certificate(models.Model):
     class Meta:
         ordering = ('date', )
         verbose_name = 'Awarded Certificate'
-        verbose_name = 'Awarded Certificates'
+        verbose_name_plural = 'Awarded Certificates'
 
     def __str__(self):
         return self.title
