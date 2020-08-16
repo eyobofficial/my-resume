@@ -26,7 +26,7 @@
           <owl-carousel-o [options]="carouselOptions">
             <ng-template carouselSlide *ngFor="let photo of project.photos">
               <div class="item">
-                <img [src]="photo.photo" [alt]="photo.title" />
+                <img [src]="photo.photo" [alt]="photo.title" [title]="photo.title" />
               </div>
             </ng-template>
           </owl-carousel-o>
