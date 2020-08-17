@@ -1,0 +1,15 @@
+#content {
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 60px;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-size: 20px;
+}

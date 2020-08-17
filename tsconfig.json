@@ -21,6 +21,7 @@
       "@portfolio/*": ["src/app/portfolio/*"],
       "@contact/*": ["src/app/contact/*"],
       "@shared/*": ["src/app/shared/*"],
+      "@not-found/*": ["src/app/not-found/*"],
       "@environments/*": ["src/environments/*"]
     }
   },
